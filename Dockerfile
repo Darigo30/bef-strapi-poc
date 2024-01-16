@@ -13,7 +13,9 @@ RUN npm run build
 # Etapa de ejecución
 FROM nginx:alpine
 # Copiar el build de Angular al directorio de Nginx
-COPY --from=build /app/dist/bef-project/browser /var/www/carpeta2
+COPY --from=build /app/dist/bef-project/browser /usr/share/nginx/html
+# Copiar la configuración de Nginx
+COPY ./nginx.conf /usr/share/nginx/html/nginx.conf
 # Exponer el puerto 8080  
 EXPOSE 8080
 # Comando para ejecutar el servidor Nginx
