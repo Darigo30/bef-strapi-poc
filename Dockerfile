@@ -15,7 +15,7 @@ FROM nginx:alpine
 # Copiar el build de Angular al directorio de Nginx
 COPY --from=build /app/dist/bef-project/browser /usr/share/nginx/html
 # Copiar la configuración de Nginx
-COPY ./nginx.conf /usr/share/nginx/html/nginx.conf
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 # Exponer el puerto 8080  
 EXPOSE 8080
 # Comando para ejecutar el servidor Nginx
