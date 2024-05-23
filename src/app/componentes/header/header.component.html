@@ -1,0 +1,24 @@
+<header class="uc-header">
+    <div id="uc-global-topbar"></div>
+    <nav class="uc-navbar">
+        <div class="container d-none d-lg-block">
+            <div class="row">
+                <div class="col-lg-3">
+                    <img
+                      src="assets/logo.jpg"
+                      alt="Logo"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="col-lg-9">
+                    <ul class="uc-navbar_nav">
+                        @for(item of itemHeader; track item.name){
+                            <li><a routerLink="/recursos">{{item.name}}</a>
+                        }
+                    </ul>
+                  </div>
+            </div>
+        </div>
+    </nav>
+</header>
+

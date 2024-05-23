@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApisService } from '../servicio/apis.service';
-import { environment } from '../../environments/environment';
+import { ApisService } from '../../servicio/apis/apis.service';
+import { environment } from '../../../environments/environment';
+
 
 @Component({
   selector: 'app-libros',
@@ -10,8 +11,14 @@ import { environment } from '../../environments/environment';
   styleUrl: './libros.component.css'
 })
 export class LibrosComponent implements OnInit{
+
   libros: any = [];
-  constructor(private ApisService: ApisService ) {}
+
+  currentRating: number = 0;
+  ratings: number[] = [];
+  user = "Darita Gómez";
+
+  constructor(private ApisService: ApisService) {}
 
   ngOnInit() {
     this.ApisService.getLibros().then((dataLibros) => {
@@ -20,10 +27,10 @@ export class LibrosComponent implements OnInit{
         element.attributes.Imagen.data.forEach((foto: any) => {
           let urlImg = environment.urlBase + foto.attributes.url;
           this.libros.push({titulo: titLibro, url: urlImg});
-          console.log("libros", this.libros)
         });
       });
-      console.log("libros", dataLibros.data);
-    });
+    });  
   }
 }
+
+

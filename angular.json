@@ -43,7 +43,13 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.production.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
@@ -53,6 +59,17 @@
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.development.ts"
+                }
+              ]
+            },
+            "staging": {
+              "optimization": true,
+              "extractLicenses": true,
+              "sourceMap": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
                 }
               ]
             }
@@ -67,6 +84,9 @@
             },
             "development": {
               "buildTarget": "bef-project:build:development"
+            },
+            "staging": {
+              "buildTarget": "bef-project:build:staging"
             }
           },
           "defaultConfiguration": "development"

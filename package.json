@@ -3,10 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --configuration development",
+    "start:staging": "ng serve --configuration staging",
+    "start:production": "ng serve --configuration production",
     "build": "ng build",
+    "build:staging": "ng build --configuration staging",
+    "build:production": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:staging": "ng test --configuration staging",
+    "test:production": "ng test --configuration production"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +25,7 @@
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
     "axios": "^1.6.5",
+    "brain.js": "^1.4.10",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
@@ -28,6 +35,7 @@
     "@angular/cli": "^17.0.10",
     "@angular/compiler-cli": "^17.0.0",
     "@types/jasmine": "~5.1.0",
+    "@types/node": "^20.11.30",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

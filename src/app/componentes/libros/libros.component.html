@@ -1,0 +1,28 @@
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mt-60">
+                <h2>Libros</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section mt-60 mb-60">
+    <div class="container">
+      @if(libros) {
+        <div class="row">
+            @for (libro of libros; track libro.titulo){
+                <div class="col-12 col-md-4 mb-20">
+                    <div class="uc-card">
+                        <img [src]="libro?.url" class="card-img" alt="imagen de libro" />
+                    </div>
+                </div>
+                }
+        </div>
+      }
+    </div>
+</div>
+
+
