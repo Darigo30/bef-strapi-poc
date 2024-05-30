@@ -14,10 +14,6 @@ export class LibrosComponent implements OnInit{
 
   libros: any = [];
 
-  currentRating: number = 0;
-  ratings: number[] = [];
-  user = "Darita Gómez";
-
   constructor(private ApisService: ApisService) {}
 
   ngOnInit() {
@@ -29,6 +25,7 @@ export class LibrosComponent implements OnInit{
           this.libros.push({titulo: titLibro, url: urlImg});
         });
       });
+      console.log("libros", this.libros.length);
     });  
   }
 }

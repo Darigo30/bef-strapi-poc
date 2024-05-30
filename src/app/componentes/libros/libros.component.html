@@ -1,21 +1,25 @@
 
-<section>
+<section class="libros__titulo">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mt-60">
-                <h2>Libros</h2>
+               <h2 class="d-flex justify-content-lg-start">
+                @if(libros) {
+                    {{ libros.slice(0, 6).length }} de {{ libros.length }} libros
+                }
+               </h2>
             </div>
         </div>
     </div>
 </section>
 
-<div class="section mt-60 mb-60">
+<section class="libros__libros mt-20 mb-60">
     <div class="container">
       @if(libros) {
         <div class="row">
-            @for (libro of libros; track libro.titulo){
+            @for (libro of libros.slice(0,6); track libro.titulo){
                 <div class="col-12 col-md-4 mb-20">
-                    <div class="uc-card">
+                    <div class="uc-card libros__libros__portada">
                         <img [src]="libro?.url" class="card-img" alt="imagen de libro" />
                     </div>
                 </div>
@@ -23,6 +27,6 @@
         </div>
       }
     </div>
-</div>
+</section>
 
 

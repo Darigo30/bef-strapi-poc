@@ -1,0 +1,16 @@
+<div class="uc-footer_list-title footer-collapse-title">
+    Preguntas Frecuentes
+</div>
+<ul class="uc-footer_list footer-collapse">
+    @if(preguntasFrecuentes) {
+        @for (pregunta of preguntasFrecuentes; track pregunta.pregunta){
+            <li>
+                {{pregunta.pregunta}}
+            </li>
+        }
+        <li class="mt-12 d-flex align-items-center">
+            <span class="material-icons mr-4">help_outline</span>
+            <a href="">Ir a la página de ayuda</a>
+        </li>
+    }
+  </ul>

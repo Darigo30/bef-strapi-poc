@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { LibrosComponent } from '../../componentes/libros/libros.component';
 
 @Component({
-  selector: 'app-recursos',
+  selector: 'app-home',
   standalone: true,
   imports: [LibrosComponent],
-  templateUrl: './recursos.component.html',
-  styleUrl: './recursos.component.css'
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css'
 })
-export class RecursosComponent {
+export class HomeComponent {
 
 }

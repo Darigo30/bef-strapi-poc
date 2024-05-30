@@ -6,4 +6,3 @@ import { environment } from './environments/environment';
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));
 
-  console.log('environment', environment);

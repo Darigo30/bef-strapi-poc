@@ -1,0 +1,36 @@
+.buscador{
+    height: 70px;
+    border-radius: 10px;
+    border: 1px solid #C6C6C6;
+    font-size: 22px;
+    padding-left: 150px;
+}
+.buscador__lupa{
+    position: absolute;
+    z-index: 999;
+    top: 10%;
+    right: 30px;
+    color: #0176DE;
+    font-size: 50px;
+}
+.buscador__selectodos{
+    background-color: #F6F6F6;
+    width: 120px;
+    height: 59px;
+    border-radius: 5px;
+    font-size: 22px;
+    position: absolute;
+    z-index: 999;
+    top: 8%;
+    left: 1%;
+}
+.buscador__arrow{
+    color: #C6C6C6;
+    font-size: 35px;
+    margin-left: 6px;
+}
+
+.buscador::placeholder {
+    color: #BCBCBC;
+    font-size: 22px;
+}

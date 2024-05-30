@@ -3,18 +3,20 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './componentes/header/header.component';
 import { DataService } from './servicio/data/data.service';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, HeaderComponent],
+  imports: [CommonModule, RouterOutlet, RouterLink, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'bef-project';
   itemsArrayHeader: any[] = [];
+  itemsFooterData: any = ''; //TODO
 
   constructor(private dataServ: DataService) { }
 
@@ -25,5 +27,6 @@ export class AppComponent {
    */
   ngOnInit(): void {
     this.itemsArrayHeader = this.dataServ.getItemsHeader();
+    this.itemsFooterData = this.dataServ.getItemsFooter(); //TODO
   }
 }

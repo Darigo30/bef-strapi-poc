@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { RecursosComponent } from './vistas/recursos/recursos.component';
+import { HomeComponent } from './vistas/home/home.component';
 
 export const routes: Routes = [
     {
-        path: 'recursos',
-        title: 'recursos libros',
-        component: RecursosComponent
+        path: '',
+        title: 'BEF Digital',
+        component: HomeComponent
     }
 ];

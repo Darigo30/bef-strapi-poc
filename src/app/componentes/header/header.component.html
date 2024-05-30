@@ -1,24 +1,112 @@
+<!-- Header -->
 <header class="uc-header">
-    <div id="uc-global-topbar"></div>
-    <nav class="uc-navbar">
+    <div id="uc-global-topbar" class="uc-top-bar--bg-primary"></div>
+    <nav class="uc-navbar navbar-transparent navbar--absolute">
         <div class="container d-none d-lg-block">
             <div class="row">
-                <div class="col-lg-3">
-                    <img
-                      src="assets/logo.jpg"
-                      alt="Logo"
-                      class="img-fluid"
-                    />
-                  </div>
-                  <div class="col-lg-9">
-                    <ul class="uc-navbar_nav">
+                <div class="col-lg-3 col-xl-2">
+                    <div class="d-flex">
+                        <img
+                        src="assets/logo.png"
+                        alt="Logo"
+                        class="img-fluid"
+                        />
+                        <li class="nav-item uc-navbar-dropdown">
+                        <a href="#" class="uc-btn btn-inline logo_arrow">
+                            <span class="material-icons">expand_more</span>
+                        </a>
+                        <ul class="uc-navbar-dropdown_menu">
+                            <li class="dropdown_item--heading">
+                              <a href="#" class="uc-btn">Section</a>
+                              <ul class="uc-navbar-dropdown_child">
+                                <li class="uc-navbar-dropdown_item">
+                                  <a href="#" class="uc-btn">Pagina 1</a>
+                                </li>
+                                <li class="uc-navbar-dropdown_item">
+                                  <a href="#" class="uc-btn">Pagina 2</a>
+                                </li>
+                                <li class="uc-navbar-dropdown_item">
+                                  <a href="#" class="uc-btn">Pagina 3</a>
+                                </li>
+                                <li class="uc-navbar-dropdown_item">
+                                  <a href="#" class="uc-btn">Pagina 4</a>
+                                </li>
+                                <li class="uc-navbar-dropdown_item">
+                                  <a href="#" class="uc-btn">Pagina 5</a>
+                                </li>
+                                <li class="uc-navbar-dropdown_item">
+                                  <a href="#" class="uc-btn">Pagina 6</a>
+                                </li>
+                              </ul>
+                            </li>
+                        </ul>
+                        </li>
+                    </div>
+                </div>
+                <div class="col-lg-10 d-flex align-items-center justify-content-end">
+                    <ul class="uc-navbar_nav uc-navbar_nav_bef">
                         @for(item of itemHeader; track item.name){
-                            <li><a routerLink="/recursos">{{item.name}}</a>
+                            <li class="d-flex mr-20">
+                                <span class="material-icons">{{item.ico}}</span>
+                                <a routerLink="/">{{item.name}}</a>
+                            </li>
                         }
                     </ul>
-                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="uc-navbar_mobile d-block d-lg-none">
+            <div class="uc-navbar_mobile-bar navbar-brand">
+            <div class="uc-navbar_mobile-logo navbar-light">
+                <div class="h2 text-font--serif color-white">BEF</div>
+            </div>
+            <a
+                href="javascript:void(0);"
+                class="uc-navbar_mobile-button"
+                data-collapse="collapseMobileNav7"
+            >
+                <span class="uc-icon"></span>
+                
+            </a>
+            </div>
+            <div
+            class="uc-navbar_mobile-content"
+            data-toggle="collapseMobileNav7"
+            data-open="false"
+            style="height: 0"
+            >
+            <div class="uc-navbar_mobile-list">
+                @for(item of itemHeader; track item.name){
+                    <li class="d-flex mr-20">
+                        <span class="material-icons">{{item.ico}}</span>
+                        <a routerLink="/">{{item.name}}</a>
+                    </li>
+                }
+            </div>
             </div>
         </div>
     </nav>
 </header>
 
+  
+<!-- Banner -->
+<div class="uc-hero">
+    <img
+      class="uc-hero__bg-img"
+      src="assets/banner.jpg"
+      alt="Dummy image"
+      loading="lazy"
+    />
+    <div class="uc-hero__dark-gradient uc_hero_bef"></div>
+    <div class="uc-hero__content uc-hero__content--center uc-hero__text--center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <app-buscador></app-buscador>
+                </div>
+            </div>
+        </div>
+     
+    </div>
+</div>
+  

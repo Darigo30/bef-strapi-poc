@@ -14,7 +14,13 @@ export class DataService {
    * @returns Se devuelve un array de objetos. Cada objeto tiene una propiedad llamada "name".
    */
   getItemsHeader(): any[]  {
-    return[{name: "Recursos",},{name: "Actividades",},{name: "Noticias",},{name: "Mi cuenta",}]
+    return[{name: "Recursos", ico: "troubleshoot"},{name: "Actividades", ico: "calendar_month"},{name: "Ayuda", ico: "help_outline"}]
+  }
+
+  getItemsFooter() { //TODO 
+    // let titulo: "Biblioteca Escolar Futuro";
+    // let direccion: "Calle 123, Ciudad Futura";
+
   }
   
 }
