@@ -20,12 +20,17 @@ export class LibrosComponent implements OnInit{
     this.ApisService.getLibros().then((dataLibros) => {
       dataLibros.data.forEach((element: any) => {
         const titLibro = element.attributes.titulo;
+        const autorLibro = element.attributes.NombreAutor;
+        const resumenLibro = element.attributes.Resumen;
+        const tipoLibro = element.attributes.TipodeLibro;
+        const LinkDescargar = element.attributes.LinkDescargar;
+        const LinkLeerLibro = element.attributes.LinkLeerLibro;
         element.attributes.Imagen.data.forEach((foto: any) => {
           let urlImg = environment.urlBase + foto.attributes.url;
-          this.libros.push({titulo: titLibro, url: urlImg});
+          this.libros.push({titulo: titLibro, url: urlImg, autor: autorLibro, resumen: resumenLibro, tipo: tipoLibro, descargar: LinkDescargar, leer: LinkLeerLibro});
         });
       });
-      console.log("libros", this.libros.length);
+      console.log("libros", this.libros);
     });  
   }
 }
