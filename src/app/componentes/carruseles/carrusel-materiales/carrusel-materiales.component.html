@@ -1,0 +1,60 @@
+<div class="slidemateriales">
+    <div class="slidemateriales-inner">
+        <input class="slidemateriales-open" type="radio" id="slidemateriales-1" name="slidemateriales" aria-hidden="true" hidden="" checked="checked">
+        <div class="slidemateriales-item">
+            @if(materialesEducativos) {
+                <div class="row">
+                    @for (material of materialesEducativos.slice(0,3); track material.titulo){
+                        <div class="col-12 col-md-4">
+                            <div class="card-materiales text-left p-24 mb-4">
+                                <h2>{{material.titulo}}</h2>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 d-flex">
+                                        <span class="material-icons mr-4">picture_as_pdf</span>
+                                        <a class="btn btn-primary card-materiales_btn" [href]="material.descargar" target="_blank">Descargar</a>
+                                        <span class="material-icons material-icons card-materiales_icons ml-4">open_in_new</span>
+                                    </div>
+                                    <div class="col-12 col-md-6 d-flex justify-content-end">
+                                        <a class="btn btn-primary card-materiales_btn" [href]="material.leer" target="_blank">Ver más</a>
+                                        <span class="material-icons ml-4">add_circle</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+        <input class="slidemateriales-open" type="radio" id="slidemateriales-2" name="slidemateriales" aria-hidden="true" hidden="">
+        <div class="slidemateriales-item">
+            @if(materialesEducativos) {
+                <div class="row">
+                    @for (material of materialesEducativos.slice(3,6); track material.titulo){
+                        <div class="col-12 col-md-4">
+                            <div class="card-materiales text-left p-24 mb-4">
+                                <h2>{{material.titulo}}</h2>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 d-flex">
+                                        <span class="material-icons mr-4">picture_as_pdf</span>
+                                        <a  class="btn btn-primary card-materiales_btn" [href]="material.descargar" target="_blank">Descargar</a>
+                                        <span class="material-icons card-materiales_icons ml-4">open_in_new</span>
+                                    </div>
+                                    <div class="col-12 col-md-6 d-flex justify-content-end">
+                                        <a class="btn btn-primary card-materiales_btn" [href]="material.leer" target="_blank">Ver más</a>
+                                        <span class="material-icons ml-4">add_circle</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+        
+        <label for="slidemateriales-3" class="slidemateriales-control prev control-1"><span class="material-icons arrow_slider_bef">arrow_back_ios</span></label>
+        <label for="slidemateriales-2" class="slidemateriales-control next control-1"><span class="material-icons arrow_slider_bef">arrow_forward_ios</span></label>
+        <label for="slidemateriales-1" class="slidemateriales-control prev control-2"><span class="material-icons arrow_slider_bef">arrow_back_ios</span></label>
+        <label for="slidemateriales-3" class="slidemateriales-control next control-2"><span class="material-icons arrow_slider_bef">arrow_forward_ios</span></label>
+    </div>
+</div>

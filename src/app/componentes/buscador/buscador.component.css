@@ -34,3 +34,7 @@
     color: #BCBCBC;
     font-size: 22px;
 }
+
+.uc-hero__dark-gradient.uc_hero_bef{
+    background: linear-gradient( 180deg, rgba(0, 0, 0, 0.71) 0%, rgba(0, 0, 0, 0.39) 46.28%, rgba(0, 0, 0, 0.33) 100%)
+}

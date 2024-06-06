@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ApisService } from '../../servicio/apis/apis.service';
 import { environment } from '../../../environments/environment';
+import { CarruselLibrosComponent } from '../carruseles/carrusel-libros/carrusel-libros.component';
 
 
 @Component({
   selector: 'app-libros',
   standalone: true,
-  imports: [],
+  imports: [CarruselLibrosComponent],
   templateUrl: './libros.component.html',
   styleUrl: './libros.component.css'
 })

@@ -21,16 +21,12 @@
 }
 .uc-navbar_nav_bef li span {
     color: #fff;
+    font-size: 20px;
+    margin-right: 3px;
 }
-
-
 .uc-header-denominacion-alpha__example-container {
     position: relative;
     min-height: 170px;
-}
-
-.uc-hero__dark-gradient.uc_hero_bef{
-    background: linear-gradient( 180deg, rgba(0, 0, 0, 0.71) 0%, rgba(0, 0, 0, 0.39) 46.28%, rgba(0, 0, 0, 0.33) 100%)
 }
 .logo_arrow span{
     font-size: 40px;

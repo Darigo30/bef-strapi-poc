@@ -1,0 +1,83 @@
+<div class="slide">
+    <div class="slide-inner">
+        <input class="slide-open" type="radio" id="slide-1" name="slide" aria-hidden="true" hidden="" checked="checked">
+        <div class="slide-item">
+            @if(libros) {
+                <div class="row">
+                    @for (libro of libros.slice(0,6); track libro.titulo){
+                        <div class="col-12 col-md-4">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img [src]="libro?.url" class="libros__libros__portada" alt="imagen de libro" />
+                                    </div>
+                                    <div class="flip-card-back text-left p-24">
+                                        <div class="uc-tag tag-fixed">{{libro.tipo}}</div>
+                                        <h2>{{libro.titulo}}</h2>
+                                        <p>{{libro.autor}}</p>
+                                        <p>{{libro.resumen.slice(0, 200)}}...</p>
+
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 d-flex flip-card-back__iconsLibros">
+                                                <span class="material-icons mr-4">picture_as_pdf</span>
+                                                <a  class="btn btn-primary" [href]="libro.descargar" target="_blank">Descargar</a>
+                                                <span class="material-icons flip-card-back__iconsLibrosopen ml-4">open_in_new</span>
+                                            </div>
+                                            <div class="col-12 col-md-6 d-flex justify-content-end flip-card-back__iconsLibros">
+                                                <a class="btn btn-primary" [href]="libro.leer" target="_blank">Leer libro</a>
+                                                <span class="material-icons flip-card-back__iconsLibrosopen ml-4">open_in_new</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+       
+        <input class="slide-open" type="radio" id="slide-2" name="slide" aria-hidden="true" hidden="">
+        <div class="slide-item">
+            @if(libros) {
+                <div class="row">
+                    @for (libro of libros.slice(6,12); track libro.titulo){
+                        <div class="col-12 col-md-4">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img [src]="libro?.url" class="libros__libros__portada" alt="imagen de libro" />
+                                    </div>
+                                    <div class="flip-card-back text-left p-24">
+                                        <div class="uc-tag tag-fixed">{{libro.tipo}}</div>
+                                        <h2>{{libro.titulo}}</h2>
+                                        <p>{{libro.autor}}</p>
+                                        <p>{{libro.resumen.slice(0, 200)}}...</p>
+
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 d-flex flip-card-back__iconsLibros">
+                                                <span class="material-icons mr-4">picture_as_pdf</span>
+                                                <a  class="btn btn-primary" [href]="libro.descargar" target="_blank">Descargar</a>
+                                                <span class="material-icons flip-card-back__iconsLibrosopen ml-4">open_in_new</span>
+                                            </div>
+                                            <div class="col-12 col-md-6 d-flex justify-content-end flip-card-back__iconsLibros">
+                                                <a class="btn btn-primary" [href]="libro.leer" target="_blank">Leer libro</a>
+                                                <span class="material-icons flip-card-back__iconsLibrosopen ml-4">open_in_new</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+        <label for="slide-3" class="slide-control prev control-1"><span class="material-icons arrow_slider_bef">arrow_back_ios</span></label>
+        <label for="slide-2" class="slide-control next control-1"><span class="material-icons arrow_slider_bef">arrow_forward_ios</span></label>
+        <label for="slide-1" class="slide-control prev control-2"><span class="material-icons arrow_slider_bef">arrow_back_ios</span></label>
+        <label for="slide-3" class="slide-control next control-2"><span class="material-icons arrow_slider_bef">arrow_forward_ios</span></label>
+    </div>
+</div>

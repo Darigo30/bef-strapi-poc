@@ -1,0 +1,166 @@
+/* Cards Flip Libros */
+
+.libros__libros__portada{
+    width: 100%;
+    height: 500px;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 500px;
+    perspective: 1000px;
+    margin-bottom: 30px;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+  }
+  
+  .flip-card-back {
+    background-color: #03122E;
+    color: white;
+    transform: rotateY(180deg);
+  }
+  .flip-card-back h2 {
+    font-size: 25px;
+    line-height: 31px;
+    font-weight: bold;
+    margin: 20px 0 20px;
+  }
+  .flip-card-back p{
+    color: #EAEAEA;
+  }
+
+
+  .flip-card-back__iconsLibros a{
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  .flip-card-back__iconsLibrosopen{
+    font-size: 16px;
+  }
+
+
+ /* SLIDER LIBROS */
+
+  .slide {
+      position: relative;
+      margin-top: 26px;
+  }
+  .slide-inner {
+      position: relative;
+      /* overflow: hidden; */
+      /* width: 100%;
+      height: calc( 300px + 3em); */
+  }
+  .slide-open:checked + .slide-item {
+      position: static;
+      opacity: 100;
+  }
+  .slide-item {
+      position: absolute;
+      opacity: 0;
+
+  }
+  .slide-item img {
+      display: block;
+      height: 500px;
+      max-width: 100%;
+  }
+  .slide-control {
+      border-radius: 50%;
+      color: #fff;
+      cursor: pointer;
+      display: none;
+      font-size: 40px;
+      height: 40px;
+      line-height: 35px;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translate(0, -50%);
+      cursor: pointer;
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      text-align: center;
+      width: 40px;
+      z-index: 10;
+  }
+  .slide-control.prev {
+      left: -5%;
+  }
+  .slide-control.next {
+      right: -5%;
+  }
+  .slide-control:hover {
+      color: #aaaaaa;
+  }
+  #slide-1:checked ~ .control-1,
+  #slide-2:checked ~ .control-2,
+  #slide-3:checked ~ .control-3 {
+      display: block;
+  }
+  .slide-indicador {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      bottom: 2%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 10;
+  }
+  .slide-indicador li {
+      display: inline-block;
+      margin: 0 5px;
+  }
+  .slide-circulo {
+      color: #828282;
+      cursor: pointer;
+      display: block;
+      font-size: 35px;
+  }
+  .slide-circulo:hover {
+      color: #aaaaaa;
+  }
+  #slide-1:checked ~ .control-1 ~ .slide-indicador 
+        li:nth-child(1) .slide-circulo,
+  #slide-2:checked ~ .control-2 ~ .slide-indicador 
+        li:nth-child(2) .slide-circulo,
+  #slide-3:checked ~ .control-3 ~ .slide-indicador 
+        li:nth-child(3) .slide-circulo {
+      color: #428bca;
+  }
+
+.material-icons.arrow_slider_bef{
+  color: #0176DE;
+  font-size: 50px;
+}

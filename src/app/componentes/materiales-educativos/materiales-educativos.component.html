@@ -1,1 +1,20 @@
-<p>materiales-educativos works!</p>
+<!-- Cantidad de materiales educativos -->
+<section class="materiales_titulo">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mt-60">
+               <h2 class="d-flex justify-content-lg-start">
+                @if(materialesEducativos) {
+                    {{ materialesEducativos.length }} de {{ materialesEducativos.length }} Materiales educativos
+                }
+               </h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mb-60">
+    <div class="container">
+        <app-carrusel-materiales [materialesEducativos]="materialesEducativos"></app-carrusel-materiales>
+    </div>
+</section>

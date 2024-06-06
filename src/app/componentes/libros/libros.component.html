@@ -1,11 +1,11 @@
-
+<!-- Cantidad de libros -->
 <section class="libros__titulo">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mt-60">
                <h2 class="d-flex justify-content-lg-start">
                 @if(libros) {
-                    {{ libros.slice(0, 6).length }} de {{ libros.length }} libros
+                    {{ libros.length }} de {{ libros.length }} libros
                 }
                </h2>
             </div>
@@ -13,58 +13,9 @@
     </div>
 </section>
 
-<section class="libros__libros mt-20 mb-60">
+<!-- Carrusel de Libros -->
+<section>
     <div class="container">
-        @if(libros) {
-            <div class="row">
-                @for (libro of libros.slice(0,6); track libro.titulo){
-                    <div class="col-12 col-md-4 mb-20 d-flex justify-content-center">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                              <div class="flip-card-front">
-                                <img [src]="libro?.url" class="libros__libros__portada" alt="imagen de libro" />
-                              </div>
-                              <div class="flip-card-back text-left p-24">
-                                <div class="uc-tag tag-fixed">{{libro.tipo}}</div>
-                                <h2>{{libro.titulo}}</h2> 
-                                <p>Por: {{libro.autor}}</p> 
-                                <p>{{libro.resumen.slice(0, 200)}}...</p>
-                                <div class="row">
-                                    <div class="col-12 col-md-6 d-flex flip-card-back__iconsLibros">
-                                        <span class="material-icons mr-4">picture_as_pdf</span>
-                                        <a  class="btn btn-primary" [href]="libro.descargar" target="_blank">Descargar</a>
-                                        <span class="material-icons flip-card-back__iconsLibrosopen ml-4">open_in_new</span>
-                                    </div>
-                                    <div class="col-12 col-md-6 d-flex justify-content-end flip-card-back__iconsLibros">
-                                        <a class="btn btn-primary" [href]="libro.leer" target="_blank">Leer libro</a>
-                                        <span class="material-icons flip-card-back__iconsLibrosopen ml-4">open_in_new</span>
-                                    </div>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
-        }
+       <app-carrusel-libros [libros]="libros"></app-carrusel-libros>
     </div>
 </section>
-
-
-<!-- <section class="libros__libros mt-20 mb-60">
-    <div class="container">
-      @if(libros) {
-        <div class="row">
-            @for (libro of libros.slice(0,6); track libro.titulo){
-                <div class="col-12 col-md-4 mb-20">
-                    <div class="uc-card libros__libros__portada">
-                        <img [src]="libro?.url" class="card-img" alt="imagen de libro" />
-                    </div>
-                </div>
-                }
-        </div>
-      }
-    </div>
-</section> -->
-
-

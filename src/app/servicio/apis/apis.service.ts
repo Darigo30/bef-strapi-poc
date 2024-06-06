@@ -61,4 +61,22 @@ export class ApisService {
       console.log(error);
     }
   }
+
+  //API Materiales Educativos
+  
+  async getMaterialesEducativos() {
+    const conf = {
+      headers: {
+        Authorization: 'Bearer ' + environment.apiToken,
+      }
+    }
+    const responseMateriales = await axios.get(environment.apiMaterialesEducativos, conf);
+    try {
+      const dataMateriales = responseMateriales.data;
+      return dataMateriales;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 }

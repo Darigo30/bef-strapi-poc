@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { PreguntasFrecuentesComponent } from '../preguntas-frecuentes/preguntas-frecuentes.component';
 
 
@@ -9,6 +9,4 @@ import { PreguntasFrecuentesComponent } from '../preguntas-frecuentes/preguntas-
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
-export class FooterComponent  {
-  @Input() itemFooter: any = '' //TODO
-}
+export class FooterComponent  {}

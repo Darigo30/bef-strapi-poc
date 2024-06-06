@@ -1,0 +1,107 @@
+.card-materiales{
+    background-color: #173F8A;
+    color: #fff;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-materiales h2{
+    font-size: 20px;
+    line-height: 26px;
+}
+.card-materiales_btn{
+    text-decoration: none;
+    color: #fff;
+}
+.material-icons.card-materiales_icons{
+    font-size: 14px;
+}
+.material-icons.arrow_slider_bef{
+    color: #0176DE;
+    font-size: 50px;
+  }
+/* SLIDER */
+.slidemateriales {
+    position: relative;
+    margin-top: 26px;
+}
+.slidemateriales-inner {
+    position: relative;
+    width: 100%;
+}
+.slidemateriales-open:checked + .slidemateriales-item {
+    position: static;
+    opacity: 100;
+}
+.slidemateriales-item {
+    position: absolute;
+    opacity: 0;
+}
+.slidemateriales-item img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+.slidemateriales-control {
+    border-radius: 30%;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-size: 40px;
+    height: 40px;
+    line-height: 35px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    cursor: pointer;
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    text-align: center;
+    width: 40px;
+    z-index: 10;
+}
+.slidemateriales-control.prev {
+    left: -5%;
+}
+.slidemateriales-control.next {
+    right: -5%;
+}
+
+#slidemateriales-1:checked ~ .control-1,
+#slidemateriales-2:checked ~ .control-2,
+#slidemateriales-3:checked ~ .control-3 {
+    display: block;
+}
+.slidemateriales-indicador {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+}
+.slidemateriales-indicador li {
+    display: inline-block;
+    margin: 0 5px;
+}
+.slidemateriales-circulo {
+    color: #828282;
+    cursor: pointer;
+    display: block;
+    font-size: 35px;
+}
+.slidemateriales-circulo:hover {
+    color: #aaaaaa;
+}
+#slidemateriales-1:checked ~ .control-1 ~ .slidemateriales-indicador 
+        li:nth-child(1) .slidemateriales-circulo,
+#slidemateriales-2:checked ~ .control-2 ~ .slidemateriales-indicador 
+        li:nth-child(2) .slidemateriales-circulo,
+#slidemateriales-3:checked ~ .control-3 ~ .slidemateriales-indicador 
+        li:nth-child(3) .slidemateriales-circulo {
+    color: #428bca;
+}
