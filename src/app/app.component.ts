@@ -27,6 +27,5 @@ export class AppComponent {
    */
   ngOnInit(): void {
     this.itemsArrayHeader = this.dataServ.getItemsHeader();
-    this.itemsFooterData = this.dataServ.getItemsFooter(); //TODO
   }
 }
