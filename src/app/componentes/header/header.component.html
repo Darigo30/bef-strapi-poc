@@ -1,25 +1,26 @@
 <!-- Header -->
 <header class="uc-header">
     <div id="uc-global-topbar" class="uc-top-bar--bg-primary"></div>
-    <nav class="uc-navbar navbar-transparent navbar--absolute">
+    <nav class="uc-navbar navbar-transparent">
         <div class="container d-none d-lg-block">
             <div class="row">
                 <div class="col-lg-3 col-xl-2">
                     <div class="d-flex">
-                        <img
-                        src="assets/logo.png"
-                        alt="Logo"
-                        class="img-fluid"
-                        />
-                       
+                        <a (click)="onHome()">
+                            <img
+                            src="assets/logo.png"
+                            alt="Logo BEF Digital"
+                            class="img-fluid uc-logo-clic"
+                            />
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-10 d-flex align-items-center justify-content-end">
                     <ul class="uc-navbar_nav uc-navbar_nav_bef">
                         @for(item of itemHeader; track item.name){
-                            <li class="d-flex mr-20">
+                            <li class="d-flex mr-20 align-items-center">
                                 <span class="material-icons">{{item.ico}}</span>
-                                <a routerLink="/">{{item.name}}</a>
+                                <a class="uc-navbar_nav_bef__a" [href]="item.url">{{item.name}}</a>
                             </li>
                         }
                     </ul>
@@ -58,6 +59,3 @@
         </div>
     </nav>
 </header>
-
-<!-- Componente Buscador -->
-<app-buscador></app-buscador>

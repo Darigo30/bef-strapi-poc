@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { BuscadorComponent } from '../buscador/buscador.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,13 @@ import { BuscadorComponent } from '../buscador/buscador.component';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  constructor(private router: Router) {}
+  
   @Input() itemHeader: any[] = []
+
+  onHome() {
+    this.router.navigate(['/']);
+  }
 }
 
 

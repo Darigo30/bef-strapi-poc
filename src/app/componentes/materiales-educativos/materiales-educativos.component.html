@@ -1,20 +1,16 @@
 <!-- Cantidad de materiales educativos -->
-<section class="materiales_titulo">
+<section class="materiales_titulo mb-60">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center mt-60">
-               <h2 class="d-flex justify-content-lg-start">
-                @if(materialesEducativos) {
-                    {{ materialesEducativos.length }} de {{ materialesEducativos.length }} Materiales educativos
-                }
-               </h2>
+            <div class="col-12 mt-60">
+               <h2 class="text-center d-flex justify-content-lg-start mb-12">Materiales educativos</h2>
+               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque 
+                penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <div>
+                    <app-carrusel-materiales [materialesEducativos]="materialesEducativos"></app-carrusel-materiales>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="mb-60">
-    <div class="container">
-        <app-carrusel-materiales [materialesEducativos]="materialesEducativos"></app-carrusel-materiales>
-    </div>
-</section>

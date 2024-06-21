@@ -1,6 +1,6 @@
 .uc-navbar.navbar-transparent {
     border-bottom: none;
-    background: transparent;
+    background: #fff;
 }
 .uc-navbar{
     box-shadow: none;
@@ -17,10 +17,12 @@
 }
 
 .uc-navbar_nav_bef li a {
-    color: #fff;
+    color: #707070;
+    text-decoration: none;
 }
+
 .uc-navbar_nav_bef li span {
-    color: #fff;
+    color: #707070;
     font-size: 20px;
     margin-right: 3px;
 }

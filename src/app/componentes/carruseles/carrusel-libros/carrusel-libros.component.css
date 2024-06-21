@@ -7,10 +7,12 @@
 
 .flip-card {
     background-color: transparent;
-    width: 100%;
+    width: 400px;
     height: 500px;
     perspective: 1000px;
     margin-bottom: 30px;
+    flex: 0 1 auto;
+    margin-right: 15px;
   }
   
   .flip-card-inner {
@@ -163,4 +165,21 @@
 .material-icons.arrow_slider_bef{
   color: #0176DE;
   font-size: 50px;
+}
+.arrow-carruseles{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.arrow-carruseles{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+.img-fluid.uc-logo-clic {
+  cursor: pointer;
 }

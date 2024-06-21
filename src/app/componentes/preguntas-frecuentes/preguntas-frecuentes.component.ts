@@ -18,7 +18,6 @@ export class PreguntasFrecuentesComponent implements OnInit{
       dataPreguntasFrecuentes.data.forEach((element: any) => {
         const pregunta = element.attributes.Titulo;
         const respuesta = element.attributes.Respuesta;
-        console.log(pregunta, respuesta);
         this.preguntasFrecuentes.push({pregunta: pregunta, respuesta: respuesta});
       });
     });
