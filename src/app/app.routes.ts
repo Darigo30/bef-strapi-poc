@@ -10,7 +10,7 @@ export const routes: Routes = [
     },
     {
         path: 'busqueda',
-        title: 'Resultado de Búsqueda',
+        title: 'Recursos',
         component: BusquedaresultComponent
     }
 ];

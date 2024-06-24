@@ -16,7 +16,9 @@ export class HeaderComponent {
   @Input() itemHeader: any[] = []
 
   onHome() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    });
   }
 }
 

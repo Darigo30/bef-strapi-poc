@@ -9,7 +9,6 @@
                     <div class="col-lg-12">
                         <div class="uc-form-group">
                             <input id="ucsearch" [(ngModel)]="query" type="text" class="uc-input-style buscador" placeholder="Ingresar búsqueda" (keyup.enter)="onSearch()" />
-                            
                             <span class="material-icons buscador__lupa" (click)="onSearch()">search</span>
                         </div>
                     </div>
@@ -24,10 +23,9 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="uc-form-group">
-                            <input id="ucsearch" [(ngModel)]="query" type="text" class="uc-input-style buscador" placeholder="Ingresar búsqueda" (keyup.enter)="onSearch()" />
-                            
+                            <input id="ucsearch" [(ngModel)]="query" type="text" class="uc-input-style buscador" placeholder="Ingresar búsqueda" (keyup.enter)="onSearch()" (keyup)="onClearSearch()" />
                             <span class="material-icons buscador__lupa" (click)="onSearch()">search</span>
-                        </div>
+                        </div>  
                     </div>
                 </div>
             </div>

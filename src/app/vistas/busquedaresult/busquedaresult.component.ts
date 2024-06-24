@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApisService } from '../../servicio/apis/apis.service';
 import { BuscadorComponent } from '../../componentes/buscador/buscador.component';
 import { CarruselLibrosComponent } from '../../componentes/carruseles/carrusel-libros/carrusel-libros.component';
 import { CarruselMaterialesComponent } from '../../componentes/carruseles/carrusel-materiales/carrusel-materiales.component';
 import { LibrosComponent } from '../../componentes/libros/libros.component';
 import { MaterialesEducativosComponent } from '../../componentes/materiales-educativos/materiales-educativos.component';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-busquedaresult',
@@ -28,11 +28,15 @@ export class BusquedaresultComponent implements OnInit{
     this.cargarMaterialesEducativos();
 
     this.route.queryParams.subscribe(params => {
-      this.query = (params['query'] || '').toLowerCase();
+      this.query = (params['query'] || '').toLowerCase().trim();
       if (this.query) {
         this.search();
       }
     });
+  }
+
+  normalizeText(text: string): string {
+    return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
 
   async cargarLibros() {
@@ -49,11 +53,36 @@ export class BusquedaresultComponent implements OnInit{
     try {
       const dataLibros = await this.apisService.getLibros();
       const todoLosLibros = LibrosComponent.extraerLibros(dataLibros);
-      this.libros = todoLosLibros.filter((element: any) => element.titulo.toLowerCase().includes(this.query));
+     
+      if(this.query) {
+        const normalizarPalabras = this.normalizeText(this.query);
+        const queryPalabrasBusqueda = normalizarPalabras.split(' ').filter(palabra => palabra.length > 0);
+
+        this.libros = this.libros.filter((element: any) => {
+          const titulo = this.normalizeText(element.titulo.toLowerCase());
+          return queryPalabrasBusqueda.every(palabra => titulo.includes(palabra));
+        });
+      } else {
+        this.libros = todoLosLibros
+      }
+
+
       //Materiales Educativos
       const dataMaterialesEducativos = await this.apisService.getMaterialesEducativos();
       const todoLosMaterialesEducativos = MaterialesEducativosComponent.extraerMaterialesEducativos(dataMaterialesEducativos);
-      this.materialesEducativos = todoLosMaterialesEducativos.filter((element: any) => element.titulo.toLowerCase().includes(this.query));
+
+      if(this.query){
+        const normalizarPalabrasMateriales = this.normalizeText(this.query);
+        const queryPalabrasBusqueda = normalizarPalabrasMateriales.split(' ').filter(palabra => palabra.length > 0);
+
+        this.materialesEducativos = todoLosMaterialesEducativos.filter((element: any) => {
+          const titulo = this.normalizeText(element.titulo.toLowerCase());
+          return queryPalabrasBusqueda.every(palabra => titulo.includes(palabra));
+        });
+      } else {
+        this.materialesEducativos = todoLosMaterialesEducativos;
+      }
+
     } catch (error) {
       console.error('Error al consultar la data:', error);
     }
@@ -71,8 +100,17 @@ export class BusquedaresultComponent implements OnInit{
     }
   }
 
+  onClearSearch() {
+    localStorage.removeItem('valorSearch');
+    this.query = '';
+    this.router.navigate(['/busqueda']).then(() => {
+     this.search()
+    });
+  }
 
   onHome() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    });
   }
 }

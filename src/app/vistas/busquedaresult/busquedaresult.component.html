@@ -17,7 +17,7 @@
 </section>
 
 <!-- Buscador Component -->
-<app-buscador [showBackground]="false"></app-buscador>
+<app-buscador [showBackground]="false" (clearSearch)="onClearSearch()"></app-buscador>
 
 <!-- Resultados de búsqueda Libros-->
 <section class="mt-60">
@@ -35,10 +35,9 @@
                     [cantidadLibrosFinal2]="12"
                     [mostrarVerTodas]="false"
                     >
-                    
                 </app-carrusel-libros>
             } @else {
-              <p>No se encontraron resultados.</p>
+              <p>No se encontraron resultados para colecciones propias.</p>
             }
           </div>
         </div>
@@ -68,7 +67,7 @@
                     
                 </app-carrusel-materiales>
             } @else {
-              <p>No se encontraron resultados.</p>
+              <p>No se encontraron resultados para materiales educativos.</p>
             }
           </div>
         </div>
