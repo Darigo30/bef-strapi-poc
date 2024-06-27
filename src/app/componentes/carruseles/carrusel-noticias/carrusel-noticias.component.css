@@ -1,0 +1,17 @@
+.app-carrusel-noticias {
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+    height: 380px;
+}
+.uc-carousel.uc-carousel__bef{
+    height: 380px;
+}
+
+.carousel-img.carousel-img_bef{
+    height: 380px;
+    width: 100%;
+}
+.uc-card.card-bg--image.card-gradient--bottom-blue.card-shadow--none.card-border--none.card-radius--none {
+    height: 380px;
+}

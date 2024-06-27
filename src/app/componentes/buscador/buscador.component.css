@@ -3,7 +3,7 @@
     border-radius: 10px;
     border: 1px solid #C6C6C6;
     font-size: 22px;
-    padding-left: 150px;
+    padding-left: 30px;
 }
 .buscador__lupa{
     position: absolute;
@@ -31,10 +31,26 @@
 }
 
 .buscador::placeholder {
-    color: #BCBCBC;
+    color: #183F8A;
     font-size: 22px;
 }
 
 .uc-hero__dark-gradient.uc_hero_bef{
     background: linear-gradient( 180deg, rgba(0, 0, 0, 0.71) 0%, rgba(0, 0, 0, 0.39) 46.28%, rgba(0, 0, 0, 0.33) 100%)
+}
+
+.uc-hero.uc-hero_bef {
+    height: 440px;
+}
+.uc-hero.uc-hero_bef_inter {
+    height: 100px;
+}
+.uc-hero__bg-img.uc-hero__bg-img__bef{
+    object-fit: none;
+}
+.uc-hero__content.uc-hero__content_news{
+    position: absolute;
+    width: 100%;
+    top: 10%;
+    align-items: end;
 }

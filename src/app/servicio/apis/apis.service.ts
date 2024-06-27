@@ -33,6 +33,7 @@ export class ApisService {
       return dataStrapiLibros;
     } catch (error) {
       console.log(error);
+      return { items: [] }; 
     }
   }
 

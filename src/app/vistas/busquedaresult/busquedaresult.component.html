@@ -1,0 +1,75 @@
+
+<!-- Breacumbs -->
+<section class="mt-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ol class="uc-breadcrumb">
+                    <li class="uc-breadcrumb_item uc-breadcrumb_item__bef">
+                      <a (click)="onHome()">Inicio</a>
+                      <i class="uc-icon">keyboard_arrow_right</i>
+                    </li>
+                    <li class="uc-breadcrumb_item current">Recursos</li>
+                  </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Buscador Component -->
+<app-buscador [showBackground]="false" (clearSearch)="onClearSearch()"></app-buscador>
+
+<!-- Resultados de búsqueda Libros-->
+<section class="mt-60">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div>
+            @if(libros.length > 0) {
+              <h3>Colecciones propias:</h3>
+                <app-carrusel-libros
+                    [libros]="libros"
+                    [cantidadLibrosInicial1]="0"
+                    [cantidadLibrosFinal1]="3"
+                    [cantidadLibrosInicial2]="3"
+                    [cantidadLibrosFinal2]="12"
+                    [mostrarVerTodas]="false"
+                    >
+                </app-carrusel-libros>
+            } @else {
+              <p>No se encontraron resultados para colecciones propias.</p>
+            }
+          </div>
+        </div>
+      </div>
+      <hr class="uc-hr" />
+    </div>
+  </section>
+
+  
+  <!-- Resultado de busqueda materiales Educativos -->
+
+  <section class="mt-60">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div>
+            @if(materialesEducativos.length > 0) {
+              <h3>Materiales Educativos:</h3>
+                <app-carrusel-materiales
+                    [materialesEducativos]="materialesEducativos"
+                    [cantidadMaterialesInicial1]="0"
+                    [cantidadMaterialesFinal1]="3"
+                    [cantidadMaterialesInicial2]="3"
+                    [cantidadMaterialesFinal2]="12"
+                    [mostrarVerTodas]="false"
+                    >
+                    
+                </app-carrusel-materiales>
+            } @else {
+              <p>No se encontraron resultados para materiales educativos.</p>
+            }
+          </div>
+        </div>
+      </div>
+    </div>

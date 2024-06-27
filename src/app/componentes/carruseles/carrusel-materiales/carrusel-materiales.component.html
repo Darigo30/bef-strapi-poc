@@ -2,9 +2,9 @@
     <div class="slidemateriales-inner">
         <input class="slidemateriales-open" type="radio" id="slidemateriales-1" name="slidemateriales" aria-hidden="true" hidden="" checked="checked">
         <div class="slidemateriales-item">
-            @if(materialesEducativos) {
+            @if(visibleMateriales1) {
                 <div class="row">
-                    @for (material of materialesEducativos.slice(0,3); track material.titulo){
+                    @for (material of visibleMateriales1; track material.titulo){
                         <div class="col-12 col-md-4">
                             <div class="card-materiales text-left p-24 mb-4">
                                 <h2>{{material.titulo}}</h2>
@@ -28,9 +28,9 @@
 
         <input class="slidemateriales-open" type="radio" id="slidemateriales-2" name="slidemateriales" aria-hidden="true" hidden="">
         <div class="slidemateriales-item">
-            @if(materialesEducativos) {
+            @if(visibleMateriales2) {
                 <div class="row">
-                    @for (material of materialesEducativos.slice(3,6); track material.titulo){
+                    @for (material of visibleMateriales2; track material.titulo){
                         <div class="col-12 col-md-4">
                             <div class="card-materiales text-left p-24 mb-4">
                                 <h2>{{material.titulo}}</h2>
@@ -58,3 +58,12 @@
         <label for="slidemateriales-3" class="slidemateriales-control next control-2"><span class="material-icons arrow_slider_bef">arrow_forward_ios</span></label>
     </div>
 </div>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-end">
+                <a href="" class="arrow-carruseles">Ver todas <span class="material-icons">chevron_right</span></a>
+            </div>
+        </div>
+    </div>
+</section>

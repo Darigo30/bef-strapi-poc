@@ -17,14 +17,27 @@ export class MaterialesEducativosComponent implements OnInit {
   constructor(private ApisService: ApisService) {}
 
   ngOnInit() {
-    this.ApisService.getMaterialesEducativos().then((dataMaterialesEducativos) => {
-      dataMaterialesEducativos.data.forEach((element: any) => {
-        const titMaterialEducativo = element.attributes.Titulo;
-        const LinkDescargar = element.attributes.botondescargarmaterial;
-        const LinkLeerMaterialEducativo = element.attributes.botonvermas;
-        this.materialesEducativos.push({titulo: titMaterialEducativo, descargar: LinkDescargar, leer: LinkLeerMaterialEducativo});
-      });
-      console.log("materialesEducativos", this.materialesEducativos);
-    });
+    this.cargarMaterialesEducativos();
   }
+
+  async cargarMaterialesEducativos() {
+    try {
+      const getDataMaterialesEducativos = await this.ApisService.getMaterialesEducativos();
+      this.materialesEducativos = MaterialesEducativosComponent.extraerMaterialesEducativos(getDataMaterialesEducativos);
+      console.log('Materiales Educativos:', this.materialesEducativos);
+    } catch (error) {
+      console.error('Error al cargar la data de materiales educativos:', error);
+    }
+  }
+
+  static extraerMaterialesEducativos(dataMaterialesEducativos: any): any {
+    const materialProcesado: any[] = [];
+    dataMaterialesEducativos.data.forEach((material: any) => {
+      const titMaterialEducativo = material.attributes.Titulo;
+      const LinkDescargar = material.attributes.botondescargarmaterial;
+      const LinkLeerMaterialEducativo = material.attributes.botonvermas;
+      materialProcesado.push({titulo: titMaterialEducativo, descargar: LinkDescargar, leer: LinkLeerMaterialEducativo});
+    });
+    return materialProcesado;
+  } 
 }
