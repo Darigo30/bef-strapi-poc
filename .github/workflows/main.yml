@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - master  # Puedes cambiar esto al nombre de la rama que desees
+      - master  
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.15.0'  # Asegúrate de usar la versión de Node.js que necesitas
+          node-version: '18.15.0'  
 
       - name: Install dependencies
         run: npm install
