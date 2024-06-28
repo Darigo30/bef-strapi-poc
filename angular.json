@@ -85,7 +85,7 @@
               ]
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "demo"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -103,7 +103,7 @@
               "buildTarget": "bef-project:build:demo"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "demo"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
