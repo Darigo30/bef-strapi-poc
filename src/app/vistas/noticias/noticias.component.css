@@ -1,0 +1,49 @@
+/* Carrusel noticias */
+::ng-deep app-carrusel-noticias {
+  position: inherit; /* O cualquier otro estilo que necesites */
+  width: auto;
+  z-index: auto;
+  height: auto;
+}
+
+::ng-deep app-carrusel-noticias .uc-carousel.uc-carousel__bef {
+  height: 380px;
+}
+
+::ng-deep app-carrusel-noticias .carousel-img.carousel-img_bef {
+  height: 380px;
+  width: 100%;
+}
+
+::ng-deep app-carrusel-noticias .uc-card.card-bg--image.card-gradient--bottom-blue.card-shadow--none.card-border--none.card-radius--none {
+  height: 380px;
+}
+
+.cardnoticia__img {
+  width: 100%;
+}
+/* Cards horizontales */
+.cardnoticia > .cardnoticia__new:nth-child(n+3) .uc-card.card-height--same {
+  height: 160px;
+  display: flex;
+  flex-direction: row;
+}
+
+.cardnoticia > .cardnoticia__new:nth-child(n+3) .uc-card.card-height--same .cardnoticia__divimg {
+  width: 200px;
+  height: 100%;
+}
+
+.cardnoticia > .cardnoticia__new:nth-child(n+3) .uc-card.card-height--same .cardnoticia__divimg .cardnoticia__img {
+  width: 200px;
+  height: 100%;
+} 
+
+.cardnoticia > .cardnoticia__new:nth-child(n+3) .uc-card.card-height--same .fecha,
+.cardnoticia > .cardnoticia__new:nth-child(n+3) .uc-card.card-height--same .introtext
+{
+  display: none;
+}
+.cardnoticia > .cardnoticia__new:nth-child(n+3) .uc-card.card-height--same .tit {
+  font-size: 18px;
+}

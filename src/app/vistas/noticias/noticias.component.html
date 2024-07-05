@@ -1,0 +1,57 @@
+
+<section class="mt-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ol class="uc-breadcrumb">
+                    <li class="uc-breadcrumb_item uc-breadcrumb_item__bef">
+                      <a (click)="onHome()">Inicio</a>
+                      <i class="uc-icon">keyboard_arrow_right</i>
+                    </li>
+                    <li class="uc-breadcrumb_item current">Noticias</li>
+                  </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Componente carrusel de noticias -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="uc-title mb-40">Noticias</h2>
+            </div>
+        </div>
+        <app-carrusel-noticias [noticias]="noticiasCarrusel"></app-carrusel-noticias>
+    </div>
+</section>
+
+<!-- Cards Noticias -->
+<section>
+    <div class="container">
+        <div class="row cardnoticia">
+            @for (noticia of noticias; track noticia.title) {
+                <div class="col-md-6 mb-20 cardnoticia__new">
+                    <div class="uc-card card-height--same">
+                        <div class="cardnoticia__divimg">
+                            <img [src]="noticia?.img" class="uc-card__img cardnoticia__img" alt="imagen de la noticia" />
+                        </div>
+                       
+                        <div class="uc-card_body">
+                            <p class="text-size--sm text-color--gray text--condensed fecha">{{noticia.publish_up}}</p>
+                            <h3 class="h4 tit">{{noticia.titulo.slice(0,60) + '...'}}</h3>
+                            <div class="uc-text-divider divider-primary my-12"></div>
+                            <p class="introtext">{{noticia.introtext.slice (0, 100) + '...'}}</p>
+                            <div class="text-right mt-auto">
+                                <a href="#" class="uc-btn btn-inline">Ver más<i class="uc-icon icon-shape--rounded">arrow_forward</i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+

@@ -31,6 +31,7 @@ export class LibrosComponent implements OnInit{
     }
   }
 
+  
   static extraerLibros(dataLibros: any): any[] {
     const librosProcesados: any[] = [];
     dataLibros.data.forEach((libro: any) => {
