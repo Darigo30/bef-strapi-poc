@@ -2,6 +2,8 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CarruselNoticiasComponent } from '../carruseles/carrusel-noticias/carrusel-noticias.component';
+import { environment } from '../../../environments/environment';
+import { ApisService } from '../../servicio/apis/apis.service';
 
 @Component({
   selector: 'app-buscador',
@@ -13,12 +15,14 @@ import { CarruselNoticiasComponent } from '../carruseles/carrusel-noticias/carru
 export class BuscadorComponent implements OnInit{
   @Input() showBackground: boolean = false;
   @Output() clearSearch = new EventEmitter<void>();
-  
+
+  noticias: any = [];
   query: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private ApisService: ApisService) {}
 
   ngOnInit():void {
+    this.cargarNoticias();
     const inputSearch = localStorage.getItem('valorSearch');
     if(inputSearch){
       this.query = inputSearch;
@@ -40,5 +44,35 @@ export class BuscadorComponent implements OnInit{
       this.clearSearch.emit();
     }
   }
+
+
+  async cargarNoticias() {
+    try {
+      const getDataNoticiasService = await this.ApisService.getNoticias();
+      this.noticias = BuscadorComponent.extraerNoticias(getDataNoticiasService);
+    } catch (error) {
+      console.error('Error al cargar la data de noticias desde buscador:', error);
+    }
+  }
+
+  static extraerNoticias(dataNoticias: any): any[] {
+    const noticiasProcesadas: any[] = [];
+    const noticiasLimitadasPage = dataNoticias.data;
+
+    noticiasLimitadasPage.forEach((noticia: any) => {
+      const titNoticia = noticia.attributes.title;
+      const introtext = noticia.attributes.introtext;
+      const publish_up = noticia.attributes.publish_up;
+      let urlImg = '';
+
+      if (noticia.attributes.images && noticia.attributes.images.data && noticia.attributes.images.data.length > 0) {
+        urlImg = environment.urlBase + noticia.attributes.images.data[0].attributes.url;
+      }
+      noticiasProcesadas.push({ titulo: titNoticia, img: urlImg, introtext: introtext, publish_up: publish_up});
+    });
+    console.log("noticiasProcesadas", noticiasProcesadas);
+    return noticiasProcesadas;
+  }
+
 
 }

@@ -9,13 +9,36 @@ import { Component, ViewEncapsulation, Input } from '@angular/core'; // se usa e
   encapsulation: ViewEncapsulation.None
 })
 export class CarruselNoticiasComponent {
+
 @Input() noticias: any = [];
+currentIndex = 0;
 
+get mostrarPrimerItem(): boolean {
+  return this.currentIndex === 0 && this.noticias.length > 0;
+}
 
-currentIndex: number = 0;
+get mostrarSegundoItem(): boolean {
+  return this.currentIndex === 1 && this.noticias.length > 1;
+}
 
-setCurrentIndex(index: number): void {
-  this.currentIndex = index;
+get mostrarTercerItem(): boolean {
+  return this.currentIndex === 2 && this.noticias.length > 2;
+}
+
+siguiente() {
+  if (this.currentIndex < this.noticias.length - 1) {
+    this.currentIndex++;
+  } else {
+    this.currentIndex = 0;
+  }
+}
+
+anterior() {
+  if (this.currentIndex > 0) {
+    this.currentIndex--;
+  } else {
+    this.currentIndex = this.noticias.length - 1;
+  }
 }
 
 }

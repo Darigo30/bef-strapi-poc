@@ -1,1 +1,24 @@
 /* Estilos se aplican en donde se reutiliza este componente carrusel, buscador del home y noticias */
+
+.uc-featured-carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  
+  .slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .item.uc-card {
+    flex: 1 0 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+.uc-card__img.cardnoticia__img{
+    height: 180px;
+    width: auto;
+}
+

@@ -1,59 +1,95 @@
-<div
-    class="uc-carousel mb-80"
-    data-carousel="uc-featured-carousel"
-    data-type="carousel"
-    data-items="1"
-    data-slideby="1"
-    data-loop="true"
-    data-nav="true"
-    data-autoplay="true"
-    data-controls="false"
-    data-navcontainer="#carousel-fetured-nav"
-    data-autoplaybutton="#carousel-featured-autoplay"
-    data-autoplay-text="true"
-    data-speed="1500"
-    data-autoplay-timeout="8000"
-    data-prev-button=".uc-featured-carousel .prev"
-    data-next-button=".uc-featured-carousel .next"
->
+
 
 <div class="app-carrusel-noticias">
   <div class="container p-0">
     <div class="uc-carousel uc-carousel__bef mb-80">
       <div class="uc-featured-carousel">
-        @for (noticia of noticias; track noticia.title > 1) {
-          <div class="item uc-card" [hidden]="noticias.indexOf(noticia) !== currentIndex">
-            <div class="row no-gutters h-full">
-              <div class="col-lg-5">
-                <div class="uc-card_body--lg">
-                  <a href="#" class="uc-tag mb-16">Texto tag</a>
-                  <div class="h2">{{noticia.titulo}}</div>
-                  <p class="mt-16">{{noticia.introtext.slice(0, 100) + '...'}} </p>
-                  <div class="text-right mt-16">
-                    <a href="#" class="uc-link">Ver detalle</a>
+        <div class="slider-container" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+        
+          <div class="item uc-card">
+            @if(mostrarPrimerItem){
+              <div class="row no-gutters h-full">
+                <div class="col-lg-5">
+                  <div class="uc-card_body--lg">
+                    <a href="#" class="uc-tag mb-16">Texto tag</a>
+                    <div class="h3">{{ noticias[0].titulo }}</div>
+                    <p class="mt-16">{{ noticias[0].introtext.slice(0, 100) + '...'  }}</p>
+                    <div class="text-right mt-16">
+                      <a href="#" class="uc-link">Ver detalle</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-7">
+                  <div class="uc-card card-bg--image card-gradient--bottom-blue card-shadow--none card-border--none card-radius--none">
+                    <div style="background: url('{{noticias[0]?.img}}') no-repeat center center; background-size: cover; top: 0; left: 0; width: 100%; height: 100%;"></div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-7">
-                <div class="uc-card card-bg--image card-gradient--bottom-blue card-shadow--none card-border--none card-radius--none">
-                  <img [src]="noticia.img" class="uc-card__img cardnoticia__img" alt="imagen de la noticia">
+            }     
+          </div>
+        
+          <div class="item uc-card">
+            @if(mostrarSegundoItem){
+              <div class="row no-gutters h-full">
+                <div class="col-lg-5">
+                  <div class="uc-card_body--lg">
+                    <a href="#" class="uc-tag mb-16">Texto tag</a>
+                    <div class="h3">{{ noticias[1].titulo }}</div>
+                    <p class="mt-16">{{ noticias[1].introtext.slice(0, 100) + '...'  }}</p>
+                    <div class="text-right mt-16">
+                      <a href="#" class="uc-link">Ver detalle</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-7">
+                  <div class="uc-card card-bg--image card-gradient--bottom-blue card-shadow--none card-border--none card-radius--none">
+                    <div style="background: url('{{noticias[1]?.img}}') no-repeat center center; background-size: cover; top: 0; left: 0; width: 100%; height: 100%;"></div>
+                  </div>
                 </div>
               </div>
-            </div>
+            }
           </div>
-          }
-        
+
+          <div class="item uc-card">
+            @if(mostrarTercerItem){
+              <div class="row no-gutters h-full">
+                <div class="col-lg-5">
+                  <div class="uc-card_body--lg">
+                    <a href="#" class="uc-tag mb-16">Texto tag</a>
+                    <div class="h3">{{ noticias[2].titulo }}</div>
+                    <p class="mt-16">{{ noticias[2].introtext.slice(0, 100) + '...' }}</p>
+                    <div class="text-right mt-16">
+                      <a href="#" class="uc-link">Ver detalle</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-7">
+                  <div class="uc-card card-bg--image card-gradient--bottom-blue card-shadow--none card-border--none card-radius--none">
+                    <div style="background: url('{{noticias[2]?.img}}') no-repeat center center; background-size: cover; top: 0; left: 0; width: 100%; height: 100%;"></div>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
       </div>
+
       <div class="uc-carousel-nav primary-carousel-nav">
         <div class="container">
           <div class="carousel-nav-container">
             <ul class="carousel-nav-list" id="carousel-featured-nav">
-              @for (noticia of noticias; track noticia.title) {
-                <li class="carousel-nav-item" (click)="setCurrentIndex(noticias.indexOf(noticia))">
-                  <div class="number">{{ noticias.indexOf(noticia) + 1 }}</div>
-                  <div class="indicator" [class.active]="currentIndex === noticias.indexOf(noticia)"></div>
-                </li>
-              }
+              <li class="carousel-nav-item" (click)="currentIndex = 0">
+                <div class="number">01</div>
+                <div class="indicator" [class.active]="currentIndex === 0"></div>
+              </li>
+              <li class="carousel-nav-item" (click)="currentIndex = 1">
+                <div class="number">02</div>
+                <div class="indicator" [class.active]="currentIndex === 1"></div>
+              </li>
+              <li class="carousel-nav-item" (click)="currentIndex = 2">
+                <div class="number">03</div>
+                <div class="indicator" [class.active]="currentIndex === 2"></div>
+              </li>
             </ul>
           </div>
         </div>
@@ -61,3 +97,4 @@
     </div>
   </div>
 </div>
+
