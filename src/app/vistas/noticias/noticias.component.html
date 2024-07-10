@@ -52,19 +52,8 @@
             }
         </div>
         
-        <!-- Paginación Manual -->
-        <nav class="uc-pagination d-flex justify-content-end">
-            <button class="uc-pagination_prev mr-12" (click)="cambiarPagina(currentPage - 1)" [disabled]="currentPage === 1">
-                <i class="uc-icon">keyboard_arrow_left</i>
-                Anterior
-            </button>
-        
-            <button class="uc-pagination_next ml-12" (click)="cambiarPagina(currentPage + 1)" [disabled]="currentPage === totalPages.length">
-                Siguiente
-                <i class="uc-icon">keyboard_arrow_right</i>
-            </button>
-        </nav>
-
+        <!-- Componente paginación -->
+        <app-paginacion [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="cambiarPagina($event)"></app-paginacion>
     </div>
 </section>
 

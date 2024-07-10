@@ -1,0 +1,38 @@
+<section>
+    <div class="container p-0">
+        <div class="row">
+            @for (libro of libros; track libro.titulo) {
+                <div class="col-4">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                          <div class="flip-card-front">
+                            <img [src]="libro?.url" class="libros__libros__portada" alt="imagen de libro" />
+                          </div>
+                          <div class="flip-card-back text-left p-24">
+                            <div class="uc-tag tag-fixed">{{libro.tipo}}</div>
+                            <h2>{{libro.titulo}}</h2>
+                            <p>{{libro.autor}}</p>
+                            <p>{{libro.resumen.slice(0, 200)}}...</p>
+          
+                            <div class="flex-row">
+                              <div class="d-flex flip-card-back__iconsLibros">
+                                <span class="material-icons mr-4">picture_as_pdf</span>
+                                <a class="btn btn-primary" [href]="libro.descargar" target="_blank">Descargar</a>
+                                <span class="material-icons flip-card-back__iconsLibrosopen ml-4">open_in_new</span>
+                              </div>
+                              <div class="d-flex justify-content-end flip-card-back__iconsLibros">
+                                <a class="btn btn-primary" [href]="libro.leer" target="_blank">Leer libro</a>
+                                <span class="material-icons flip-card-back__iconsLibrosopen ml-4">open_in_new</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+               
+              }
+        </div>
+        <!-- Componente de Paginación -->
+        <!-- <app-paginacion [currentPage]="currentPage" [totalPages]="totalPages"(pageChanged)="cambiarPagina($event)"></app-paginacion> -->
+    </div>
+</section>

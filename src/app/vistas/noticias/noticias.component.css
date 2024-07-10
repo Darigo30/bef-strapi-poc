@@ -47,33 +47,3 @@
 .cardnoticia > .cardnoticia__new:nth-child(n+3) .uc-card.card-height--same .tit {
   font-size: 18px;
 }
-
-.uc-pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.uc-pagination button,
-.uc-pagination a {
-  margin: 0 5px;
-  padding: 10px 10px;
-  background: #fff;
-  cursor: pointer;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #007bff;
-  border-radius: 4px;
-}
-
-.uc-pagination .active a {
-  background: #007bff;
-  color: #fff;
-}
-
-.uc-pagination button:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}

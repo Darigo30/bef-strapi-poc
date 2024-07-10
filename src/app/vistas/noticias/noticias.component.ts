@@ -3,11 +3,12 @@ import { CarruselNoticiasComponent } from '../../componentes/carruseles/carrusel
 import { Router } from '@angular/router';
 import { ApisService } from '../../servicio/apis/apis.service';
 import { environment } from '../../../environments/environment';
+import { PaginacionComponent } from '../../componentes/paginacion/paginacion.component';
 
 @Component({
   selector: 'app-noticias',
   standalone: true,
-  imports: [CarruselNoticiasComponent],
+  imports: [CarruselNoticiasComponent, PaginacionComponent],
   templateUrl: './noticias.component.html',
   styleUrls: ['./noticias.component.css']
 })

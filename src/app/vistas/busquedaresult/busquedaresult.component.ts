@@ -6,12 +6,13 @@ import { CarruselLibrosComponent } from '../../componentes/carruseles/carrusel-l
 import { CarruselMaterialesComponent } from '../../componentes/carruseles/carrusel-materiales/carrusel-materiales.component';
 import { LibrosComponent } from '../../componentes/libros/libros.component';
 import { MaterialesEducativosComponent } from '../../componentes/materiales-educativos/materiales-educativos.component';
+import { CardsRecursosComponent } from '../../componentes/cards-recursos/cards-recursos.component';
 
 
 @Component({
   selector: 'app-busquedaresult',
   standalone: true,
-  imports: [BuscadorComponent, CarruselLibrosComponent, CarruselMaterialesComponent],
+  imports: [BuscadorComponent, CarruselLibrosComponent, CarruselMaterialesComponent, CardsRecursosComponent],
   templateUrl: './busquedaresult.component.html',
   styleUrl: './busquedaresult.component.css'
 })

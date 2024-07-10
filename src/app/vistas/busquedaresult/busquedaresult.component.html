@@ -25,7 +25,8 @@
       <div class="row">
         <div class="col-12">
           <div>
-            @if(libros.length > 0) {
+            <h3 class="mb-40">Publicaciones BEF</h3>
+            <!-- @if(libros.length > 0) {
               <h3>Colecciones propias:</h3>
                 <app-carrusel-libros
                     [libros]="libros"
@@ -38,13 +39,14 @@
                 </app-carrusel-libros>
             } @else {
               <p>No se encontraron resultados para colecciones propias.</p>
-            }
+            } -->
+              <app-cards-recursos [libros]="libros"></app-cards-recursos>
           </div>
         </div>
       </div>
       <hr class="uc-hr" />
     </div>
-  </section>
+</section>
 
   
   <!-- Resultado de busqueda materiales Educativos -->
@@ -55,7 +57,7 @@
         <div class="col-12">
           <div>
             @if(materialesEducativos.length > 0) {
-              <h3>Materiales Educativos:</h3>
+              <h3>Recursos pedagógicos y juegos</h3>
                 <app-carrusel-materiales
                     [materialesEducativos]="materialesEducativos"
                     [cantidadMaterialesInicial1]="0"
@@ -73,3 +75,4 @@
         </div>
       </div>
     </div>
+  </section>
