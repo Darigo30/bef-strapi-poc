@@ -1,0 +1,77 @@
+<section class="mt-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ol class="uc-breadcrumb">
+                    <li class="uc-breadcrumb_item uc-breadcrumb_item__bef">
+                      <a (click)="onHome()">Inicio</a>
+                      <i class="uc-icon">keyboard_arrow_right</i>
+                    </li>
+                    <li class="uc-breadcrumb_item current">
+                        <a (click)="onNoticias()">Noticias</a>
+                        <i class="uc-icon">keyboard_arrow_right</i>
+                    </li>
+                    <li class="uc-breadcrumb_item current">
+                        @if(noticia) {
+                            {{noticia.titulo}}
+                        }
+                    </li>
+                  </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-9">
+                <h1 class="uc-title mb-0">
+                    @if(noticia) {
+                        {{noticia.titulo}}
+                    }
+                </h1>
+                <p class="m-0 p-0 p-color--gray">
+                    @if(noticia) {
+                        {{noticia.publish_up}}
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mt-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-7">
+                @if(noticia) {
+                    <p>{{noticia?.introtext}}</p>
+                }
+            </div>
+            <div class="col-12 col-md-5">
+                <div class="d-flex justify-content-end">
+                    <!-- <img [src]="imageUrl" alt="Imagen de la noticia"> -->
+                    <img src="../../assets/por-defecto.png" alt="Imagen de la noticia" class="noticias-detalles-imag">
+                    <!-- <div class="uc-card__img" alt="Imagen Noticia" style="background: url('{{noticia?.img}}') no-repeat center center; background-size: cover; width: 100%;"></div> -->
+                </div>
+                <div class="d-flex justify-content-end align-items-center mt-16">
+                    <img src="../../assets/iconos/iconos-redes/facebook.png" alt="Facebook" height="100%" class="mr-12" />
+                    <img src="../../assets/iconos/iconos-redes/twitter.png" alt="Twitter" height="100%" class="mr-12" />
+                    <img src="../../assets/iconos/iconos-redes/youtube.png" alt="Youtube" height="100%" class="mr-12" />
+                    <img src="../../assets/iconos/iconos-redes/instagram.png" alt="Instagram" height="100%" class="mr-12" />
+                    <img src="../../assets/iconos/iconos-redes/email.png" alt="Email" height="100%" class=""/>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-40">
+            <div class="col-12">
+                <h2 class="mb-40">Noticia</h2>
+                <p class="">{{noticia?.fulltext}}</p>
+                <!-- <img [src]="imageUrl" alt="Imagen de la noticia"> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+

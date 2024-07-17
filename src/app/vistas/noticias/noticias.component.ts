@@ -68,15 +68,21 @@ export class NoticiasComponent {
       const titNoticia = noticia.attributes.title;
       const introtext = noticia.attributes.introtext;
       const publish_up = noticia.attributes.publish_up;
+      const id = noticia.id;
       let urlImg = '';
 
       if (noticia.attributes.images && noticia.attributes.images.data && noticia.attributes.images.data.length > 0) {
         urlImg = environment.urlBase + noticia.attributes.images.data[0].attributes.url;
       }
-      noticiasProcesadas.push({ titulo: titNoticia, img: urlImg, introtext: introtext, publish_up: publish_up });
+      noticiasProcesadas.push({ titulo: titNoticia, img: urlImg, introtext: introtext, publish_up: publish_up, id: id });
     });
     console.log("noticiasProcesadas", noticiasProcesadas);
     return noticiasProcesadas;
+  }
+
+  verDetalle(id: number) {
+    this.router.navigate(['/noticias', id]);
+    console.log("id", id);
   }
 
   onHome() {

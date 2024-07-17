@@ -44,7 +44,7 @@
                             <div class="uc-text-divider divider-primary my-12"></div>
                             <p class="introtext">{{noticia.introtext.slice (0, 100) + '...'}}</p>
                             <div class="text-right mt-auto">
-                                <a href="#" class="uc-btn btn-inline">Ver más<i class="uc-icon icon-shape--rounded">arrow_forward</i></a>
+                                <a (click)="verDetalle(noticia.id)" class="uc-btn btn-inline">Ver más<i class="uc-icon icon-shape--rounded">arrow_forward</i></a>
                             </div>
                         </div>
                     </div>

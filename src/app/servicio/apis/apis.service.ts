@@ -79,4 +79,22 @@ export class ApisService {
     }
   }
 
+  //Noticias by ID
+
+  async getNoticiaById(id: number) {
+    const conf = {
+        headers: {
+            Authorization: 'Bearer ' + environment.apiToken,
+        }
+    }
+    const responseNoticia = await axios.get(`${environment.apiNoticias}/${id}?populate=*`, conf);
+    try {
+        const dataNoticia = responseNoticia.data;
+        console.log('dataNoticia servicio', dataNoticia);
+        return dataNoticia;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 }
