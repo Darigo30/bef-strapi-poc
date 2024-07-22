@@ -1,5 +1,5 @@
-import { Component, ViewEncapsulation, Input } from '@angular/core'; // se usa el viewEncapsulation para que los estilos de este componente no afecten a otros componentes
-
+import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core'; // se usa el viewEncapsulation para que los estilos de este componente no afecten a otros componentes
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-carrusel-noticias',
   standalone: true,
@@ -10,6 +10,9 @@ import { Component, ViewEncapsulation, Input } from '@angular/core'; // se usa e
 })
 export class CarruselNoticiasComponent {
 
+constructor(private router: Router) { }
+
+@Output() emitirIdNoticia = new EventEmitter<number>();
 @Input() noticias: any = [];
 currentIndex = 0;
 
@@ -38,6 +41,15 @@ anterior() {
     this.currentIndex--;
   } else {
     this.currentIndex = this.noticias.length - 1;
+  }
+}
+
+verDetalle(id: number) {
+  if (id) {
+    this.emitirIdNoticia.emit(id);
+    this.router.navigate(['/noticias', id]);
+  } else {
+    console.error('ID de la noticia no válido en CarruselNoticiasComponent:', id);
   }
 }
 

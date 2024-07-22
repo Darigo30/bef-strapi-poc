@@ -83,18 +83,21 @@ export class ApisService {
 
   async getNoticiaById(id: number) {
     const conf = {
-        headers: {
-            Authorization: 'Bearer ' + environment.apiToken,
-        }
-    }
-    const responseNoticia = await axios.get(`${environment.apiNoticias}/${id}?populate=*`, conf);
+      headers: {
+        Authorization: `Bearer ${environment.apiToken}`,
+      }
+    };
+
     try {
-        const dataNoticia = responseNoticia.data;
-        console.log('dataNoticia servicio', dataNoticia);
-        return dataNoticia;
+      const url = `${environment.apiNoticiaById}/${id}?populate=*`;
+      const response = await axios.get(url, conf);
+      console.log('response', response);
+      return response.data;
     } catch (error) {
-        console.log(error);
+      console.error('Error fetching noticia:', error);
+      throw error;
     }
-}
+  }
+
 
 }

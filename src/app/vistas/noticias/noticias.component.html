@@ -5,10 +5,10 @@
             <div class="col-12">
                 <ol class="uc-breadcrumb">
                     <li class="uc-breadcrumb_item uc-breadcrumb_item__bef">
-                      <a (click)="onHome()">Inicio</a>
+                      <a class="verdetallenew" (click)="onHome()">Inicio</a>
                       <i class="uc-icon">keyboard_arrow_right</i>
                     </li>
-                    <li class="uc-breadcrumb_item current">Noticias</li>
+                    <li class="uc-breadcrumb_item current verdetallenew">Noticias</li>
                   </ol>
             </div>
         </div>
@@ -23,7 +23,7 @@
                 <h2 class="uc-title mb-40">Noticias</h2>
             </div>
         </div>
-        <app-carrusel-noticias [noticias]="noticiasCarrusel"></app-carrusel-noticias>
+        <app-carrusel-noticias [noticias]="noticiasCarrusel" (emitirIdNoticia)="verDetalle($event)"></app-carrusel-noticias>
     </div>
 </section>
 
@@ -44,7 +44,7 @@
                             <div class="uc-text-divider divider-primary my-12"></div>
                             <p class="introtext">{{noticia.introtext.slice (0, 100) + '...'}}</p>
                             <div class="text-right mt-auto">
-                                <a (click)="verDetalle(noticia.id)" class="uc-btn btn-inline">Ver más<i class="uc-icon icon-shape--rounded">arrow_forward</i></a>
+                                <a (click)="verDetalle(noticia.id)" class="uc-btn btn-inline verdetallenew">Ver más<i class="uc-icon icon-shape--rounded">arrow_forward</i></a>
                             </div>
                         </div>
                     </div>

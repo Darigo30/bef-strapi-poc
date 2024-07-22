@@ -4,11 +4,11 @@
             <div class="col-12">
                 <ol class="uc-breadcrumb">
                     <li class="uc-breadcrumb_item uc-breadcrumb_item__bef">
-                      <a (click)="onHome()">Inicio</a>
+                      <a class="verdetallenew" (click)="onHome()">Inicio</a>
                       <i class="uc-icon">keyboard_arrow_right</i>
                     </li>
                     <li class="uc-breadcrumb_item current">
-                        <a (click)="onNoticias()">Noticias</a>
+                        <a class="verdetallenew" (click)="onNoticias()">Noticias</a>
                         <i class="uc-icon">keyboard_arrow_right</i>
                     </li>
                     <li class="uc-breadcrumb_item current">
@@ -43,18 +43,31 @@
 
 <section class="mt-40">
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-7">
+        <div class="row pt-0 pb-0 p-60 d-flex justify-content-between">
+            <div class="col-12 col-md-6">
                 @if(noticia) {
                     <p>{{noticia?.introtext}}</p>
                 }
             </div>
-            <div class="col-12 col-md-5">
+            <div class="col-12 col-md-6">
                 <div class="d-flex justify-content-end">
-                    <!-- <img [src]="imageUrl" alt="Imagen de la noticia"> -->
-                    <img src="../../assets/por-defecto.png" alt="Imagen de la noticia" class="noticias-detalles-imag">
-                    <!-- <div class="uc-card__img" alt="Imagen Noticia" style="background: url('{{noticia?.img}}') no-repeat center center; background-size: cover; width: 100%;"></div> -->
+                    @if(imageUrl) {
+                        <img [src]="imageUrl[0]" alt="Imagen de la noticia">
+                    } @else {
+                        <img src="../../assets/por-defecto.png" alt="Imagen de la noticia" class="noticias-detalles-imag">
+                    }
                 </div>
+
+                <share-buttons theme="modern-dark"
+                [include]="['copy', 'facebook', 'email','linkedin','twitter','whatsapp']"
+                [showIcon]="true"
+                [showText]="false"
+                url="https://rodrigo.kamada.com.br/"
+                description="Angular Share Buttons"
+                twitterAccount="rodrigokamada"
+                class="pt-5">
+              </share-buttons>
+
                 <div class="d-flex justify-content-end align-items-center mt-16">
                     <img src="../../assets/iconos/iconos-redes/facebook.png" alt="Facebook" height="100%" class="mr-12" />
                     <img src="../../assets/iconos/iconos-redes/twitter.png" alt="Twitter" height="100%" class="mr-12" />
@@ -64,11 +77,17 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-40">
+        <div class="row pt-0 p-60">
             <div class="col-12">
-                <h2 class="mb-40">Noticia</h2>
-                <p class="">{{noticia?.fulltext}}</p>
-                <!-- <img [src]="imageUrl" alt="Imagen de la noticia"> -->
+                <h3 class="mb-20">Noticia</h3>
+                <p class="text-noticia">{{noticia?.fulltext.slice(0, 600)}}</p>
+                @if(imageUrl) {
+                    <img [src]="imageUrl[1]" alt="Imagen de la noticia" class="noticias-detalles-imag__centro">
+                } @else {
+                    <img src="../../assets/por-defecto.png" alt="Imagen de la noticia" class="">
+                }
+                <h3 class="mb-20">Pero aún hay más...</h3>
+                <p class="text-noticia">{{noticia?.fulltext.slice(600)}}</p>
             </div>
         </div>
     </div>

@@ -47,3 +47,7 @@
 .cardnoticia > .cardnoticia__new:nth-child(n+3) .uc-card.card-height--same .tit {
   font-size: 18px;
 }
+
+.verdetallenew{
+  cursor: pointer;
+}

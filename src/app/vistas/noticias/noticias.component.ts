@@ -82,7 +82,6 @@ export class NoticiasComponent {
 
   verDetalle(id: number) {
     this.router.navigate(['/noticias', id]);
-    console.log("id", id);
   }
 
   onHome() {

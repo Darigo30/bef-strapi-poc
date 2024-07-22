@@ -1,3 +1,19 @@
 .noticias-detalles-imag {
     width: 100%;
 }
+.noticias-detalles-imag__centro{
+    width: 100%;
+    margin: 30px 0 40px;
+}
+
+img .noticias-detalles-imag__centro {
+    width: 100%;
+}
+
+.text-noticia{ 
+    text-align: justify;
+}
+
+.verdetallenew{
+    cursor: pointer;
+}

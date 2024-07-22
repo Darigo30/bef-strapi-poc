@@ -1,5 +1,6 @@
 @if(showBackground){
-    <app-carrusel-noticias [noticias]="noticias"></app-carrusel-noticias>
+    <app-carrusel-noticias [noticias]="noticias" (emitirIdNoticia)="verDetalle($event)"></app-carrusel-noticias>
+
     <div class="uc-hero uc-hero_bef mb-40">
         <img class="uc-hero__bg-img uc-hero__bg-img__bef" src="assets/banner.jpg" alt="Dummy image" loading="lazy"/>
         

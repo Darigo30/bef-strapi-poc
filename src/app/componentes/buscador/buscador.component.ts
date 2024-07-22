@@ -45,7 +45,6 @@ export class BuscadorComponent implements OnInit{
     }
   }
 
-
   async cargarNoticias() {
     try {
       const getDataNoticiasService = await this.ApisService.getNoticias();
@@ -64,15 +63,23 @@ export class BuscadorComponent implements OnInit{
       const introtext = noticia.attributes.introtext;
       const publish_up = noticia.attributes.publish_up;
       let urlImg = '';
+      const id = noticia.id;
 
       if (noticia.attributes.images && noticia.attributes.images.data && noticia.attributes.images.data.length > 0) {
         urlImg = environment.urlBase + noticia.attributes.images.data[0].attributes.url;
       }
-      noticiasProcesadas.push({ titulo: titNoticia, img: urlImg, introtext: introtext, publish_up: publish_up});
+      noticiasProcesadas.push({ id: id, titulo: titNoticia, img: urlImg, introtext: introtext, publish_up: publish_up});
     });
     console.log("noticiasProcesadas", noticiasProcesadas);
     return noticiasProcesadas;
   }
 
+  verDetalle(id: number) {
+    if (id) {
+      this.router.navigate(['/noticias', id]);
+    } else {
+      console.error('ID de la noticia no válido en BuscadorComponent:', id);
+    }
+  }
 
 }
