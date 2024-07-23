@@ -17,3 +17,9 @@ img .noticias-detalles-imag__centro {
 .verdetallenew{
     cursor: pointer;
 }
+.img_principal{
+    width: 440px;
+}
+.img_principal img{
+    width: 100%;
+}

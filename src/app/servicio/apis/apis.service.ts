@@ -91,13 +91,10 @@ export class ApisService {
     try {
       const url = `${environment.apiNoticiaById}/${id}?populate=*`;
       const response = await axios.get(url, conf);
-      console.log('response', response);
       return response.data;
     } catch (error) {
       console.error('Error fetching noticia:', error);
       throw error;
     }
   }
-
-
 }

@@ -2,15 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApisService } from '../../servicio/apis/apis.service';
 import { environment } from '../../../environments/environment';
-import { ShareButtons } from 'ngx-sharebuttons/buttons';
-import { shareIcons } from 'ngx-sharebuttons/icons';
-
-
-
+import { NoticiasRelacionadasComponent } from '../../componentes/noticias-relacionadas/noticias-relacionadas.component';
 @Component({
   selector: 'app-noticias-detalles',
   standalone: true,
-  imports: [ShareButtons],
+  imports: [NoticiasRelacionadasComponent],
   templateUrl: './noticias-detalles.component.html',
   styleUrls: ['./noticias-detalles.component.css'],
 
@@ -19,6 +15,7 @@ export class NoticiasDetallesComponent implements OnInit {
 
   noticia: any;
   imageUrl: string[] = [];
+  idNoticia: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -27,26 +24,31 @@ export class NoticiasDetallesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log('NoticiasDetallesComponent', NoticiasRelacionadasComponent);
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.cargarNoticia(Number(id));
+      this.idNoticiaRRSS(Number(id));
     }
+  }
+
+  idNoticiaRRSS(id: number){
+    //armar url para compartir en redes sociales
+    let urlRedes = `${environment.urlBase}/noticias/${id}`;
+    this.idNoticia = urlRedes;
   }
 
   async cargarNoticia(id: number) {
     try {
       const dataDetalleNoticia = await this.apisService.getNoticiaById(id);
-      console.log('dataNoticia servicio', dataDetalleNoticia);
 
       const noticiaElement = dataDetalleNoticia.data;
 
-      if (noticiaElement && noticiaElement.attributes) {
-        const { title, introtext, fulltext, publish_up, images } = noticiaElement.attributes;
-
+      if (noticiaElement && noticiaElement.attributes) {  
+        const { title, introtext, fulltext, publish_up, images, id } = noticiaElement.attributes;
+        //Imagenes
         let imageUrls: string[] = [];
         if (images && images.data && images.data.length > 0) {
-          //imageUrl = `${environment.urlBase}${images.data[0].attributes.url}`;
-          //recorrer las data para extraer las imagenes que existan 
           images.data.forEach((element: any) => {
             const imageUrl = `${environment.urlBase}${element.attributes.url}`;
             imageUrls.push(imageUrl);
@@ -60,17 +62,16 @@ export class NoticiasDetallesComponent implements OnInit {
         } else {
           imageUrls.push('No hay imagen en la noticia');
         }
-
         this.imageUrl  = imageUrls;
-
-        console.log('this.imageUrl', this.imageUrl);
+        //Fin de imagenes
 
         this.noticia = { 
           titulo: title,
           introtext: introtext,
           fulltext: fulltext,
           publish_up: publish_up,
-          images: this.imageUrl
+          images: this.imageUrl,
+          id: id
         };
       } else {
         console.error('No se encontraron datos de la noticia');
