@@ -47,7 +47,7 @@ export class NoticiasRelacionadasComponent implements OnInit {
       console.error('Error al cargar noticias relacionadas:', error);
     }
   }
-
+//TODO Ver detalle interno  
   verDetalle(id: number, event: Event) {
     event.preventDefault(); 
     this.router.navigate(['/noticias', id]);
