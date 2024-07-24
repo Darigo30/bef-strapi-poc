@@ -1,24 +1,27 @@
-<section>
+<section class="noticias_relacionadas pb-20">
     <div class="container">
-        <div class="row">
+        <div class="row d-flex justify-content-between">
+            <div class="col-12 col-md-6">
+                <h3 class="mt-60 mb-40">Noticias Relacionadas</h3>
+            </div>
+            <div class="mt-60 col-12 col-md-6 d-flex justify-content-end">
+                <a (click)="irANoticias()" class="uc-btn btn-inline vertodasin">Ver todas<i class="uc-icon">keyboard_arrow_right</i></a>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-between card-aligns mb-80">
             @for(noticia of noticiasRelacionadas; track noticia.title) {
-                <div class="col-12 col-md-6">
-                    <div class="uc-card card-type--horizontal" style="max-width: 500px">
-
-
-                        <div class="img-fluid" style="background: url('{{imagenNoticia}}') no-repeat center center;
-                            background-size: cover; width: 100%;">
+                <div class="col-12 col-md-6 mb-20 cardcita">
+                    <div class="uc-card card-type--horizontal" style="max-width: 500px; height: 160px;">
+                        <div class="img-fluid" style="background: url('{{noticia.imagenNoticia}}') no-repeat center center;
+                            background-size: cover; width: 260px; height: auto;">
                         </div>
-
-
-                       
-                        <div class="uc-card_body">
-                        <a href="#" class="uc-tag">Texto</a>
+  
+                        <div class="uc-card_body uc_card_bef">
                         <h3 class="h4">
-                            {{noticia.attributes.title}}
+                            {{noticia.attributes.title.slice(0 , 40) + '...'}}
                         </h3>
                         <div class="text-right">
-                            <a (click)="verDetalle(noticia.id)" class="uc-link">Ver más</a>
+                            <a (click)="verDetalle(noticia.id, $event)" class="uc-btn btn-inline">Ver más <i class="uc-icon icon-shape--rounded">keyboard_arrow_right</i></a>
                         </div>
                         </div>
                     </div>

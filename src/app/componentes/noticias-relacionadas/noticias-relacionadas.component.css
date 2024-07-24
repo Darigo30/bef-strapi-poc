@@ -1,0 +1,21 @@
+.uc-card_body.uc_card_bef {
+    display: flex;
+    justify-content: space-between;
+}
+
+.noticias_relacionadas{
+    background-color: #fff;
+}
+
+.card-aligns > .cardcita:nth-child(2n) {
+    justify-content: end;
+    display: flex;
+}
+
+.vertodas{
+    text-decoration: none;
+}
+
+.vertodasin{
+    cursor: pointer;
+}

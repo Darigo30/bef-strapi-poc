@@ -15,9 +15,15 @@ export class NoticiasRelacionadasComponent implements OnInit {
   @Input() fechaPublicacion: string = '';
   @Input() idNoticia: number = 0;
   noticiasRelacionadas: any[] = [];
-  imagenNoticia: string[] = [];
+  imagenNoticia: string = '';
+  urlNoticias: string = ''
 
   constructor(private apisService: ApisService, private router: Router) {}
+
+  irANoticias() {
+    this.urlNoticias = '/noticias';
+    this.router.navigate([this.urlNoticias]);
+  }
 
   ngOnInit(): void {
       this.cargarNoticiasRelacionadas(this.fechaPublicacion, this.idNoticia);
@@ -34,19 +40,16 @@ export class NoticiasRelacionadasComponent implements OnInit {
           const imagencitaOne = `${environment.urlBase}${element.attributes.url}`;
           imageUrls.push(imagencitaOne);
         });
-
-        this.imagenNoticia = imageUrls;
-        console.log('imagenNoticiassss:', this.imagenNoticia);
-
-        console.log(noticia.id)
+        noticia.imagenNoticia = imageUrls.length > 0 ? imageUrls[0] : '';
         return noticia.id !== idNoticia && noticiaFecha >= fecha;
-      });
+      }).slice(0,6)
     } catch (error) {
       console.error('Error al cargar noticias relacionadas:', error);
     }
   }
 
-  verDetalle(id: number) {
+  verDetalle(id: number, event: Event) {
+    event.preventDefault(); 
     this.router.navigate(['/noticias', id]);
     console.log('Ver detalle de noticia:', id);
   }
