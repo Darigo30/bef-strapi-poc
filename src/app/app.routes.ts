@@ -24,5 +24,10 @@ export const routes: Routes = [
         path: 'noticias/:id',
         title: 'Detalle Noticia',
         component: NoticiasDetallesComponent
+    },
+    {
+        path: '**',
+        redirectTo: '',
+        pathMatch: 'full'
     }
 ];

@@ -88,4 +88,13 @@ export class NoticiasDetallesComponent implements OnInit {
   onNoticias() {
     this.router.navigate(['/noticias']);
   }
+
+  onVerDetalle(id: number) {
+   //se debe refresh la pagina para que se cargue la noticia
+    if (id) {
+      this.router.navigate(['/noticias', id]).then(() => window.location.reload());
+    } else {
+      console.error('ID de la noticia no válido en NoticiasDetallesComponent:', id);
+    } 
+  }
 }

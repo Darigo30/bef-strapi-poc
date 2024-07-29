@@ -125,5 +125,8 @@
 
 <!-- Mostrar solo 6 -->
 
-
-<app-noticias-relacionadas [fechaPublicacion]="noticia?.publish_up" [idNoticia]="noticia?.id"></app-noticias-relacionadas>
+<app-noticias-relacionadas 
+  [fechaPublicacion]="noticia?.publish_up" 
+  [idNoticia]="noticia?.id" 
+  (emitirIdNoticia)="onVerDetalle($event)">
+</app-noticias-relacionadas>

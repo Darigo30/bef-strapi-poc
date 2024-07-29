@@ -26,20 +26,6 @@
         <div class="col-12">
           <div>
             <h3 class="mb-40">Publicaciones BEF</h3>
-            <!-- @if(libros.length > 0) {
-              <h3>Colecciones propias:</h3>
-                <app-carrusel-libros
-                    [libros]="libros"
-                    [cantidadLibrosInicial1]="0"
-                    [cantidadLibrosFinal1]="3"
-                    [cantidadLibrosInicial2]="3"
-                    [cantidadLibrosFinal2]="12"
-                    [mostrarVerTodas]="false"
-                    >
-                </app-carrusel-libros>
-            } @else {
-              <p>No se encontraron resultados para colecciones propias.</p>
-            } -->
               <app-cards-recursos [libros]="libros"></app-cards-recursos>
           </div>
         </div>
@@ -58,16 +44,7 @@
           <div>
             @if(materialesEducativos.length > 0) {
               <h3>Recursos pedagógicos y juegos</h3>
-                <app-carrusel-materiales
-                    [materialesEducativos]="materialesEducativos"
-                    [cantidadMaterialesInicial1]="0"
-                    [cantidadMaterialesFinal1]="3"
-                    [cantidadMaterialesInicial2]="3"
-                    [cantidadMaterialesFinal2]="12"
-                    [mostrarVerTodas]="false"
-                    >
-                    
-                </app-carrusel-materiales>
+                 <app-cards-materialesyjuegos [materialesEducativos]="materialesEducativos"></app-cards-materialesyjuegos>
             } @else {
               <p>No se encontraron resultados para materiales educativos.</p>
             }

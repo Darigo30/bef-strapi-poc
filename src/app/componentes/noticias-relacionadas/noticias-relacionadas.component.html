@@ -9,6 +9,7 @@
             </div>
         </div>
         <div class="row d-flex justify-content-between card-aligns mb-80">
+        
             @for(noticia of noticiasRelacionadas; track noticia.title) {
                 <div class="col-12 col-md-6 mb-20 cardcita">
                     <div class="uc-card card-type--horizontal" style="max-width: 500px; height: 160px;">
@@ -21,7 +22,7 @@
                             {{noticia.attributes.title.slice(0 , 40) + '...'}}
                         </h3>
                         <div class="text-right">
-                            <a (click)="verDetalle(noticia.id, $event)" class="uc-btn btn-inline">Ver más <i class="uc-icon icon-shape--rounded">keyboard_arrow_right</i></a>
+                            <a (click)="verDetalle(noticia.id)" class="uc-btn btn-inline vertodasin">Ver más <i class="uc-icon icon-shape--rounded">keyboard_arrow_right</i></a>
                         </div>
                         </div>
                     </div>

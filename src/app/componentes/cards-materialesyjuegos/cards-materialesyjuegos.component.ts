@@ -1,17 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { ApisService } from '../../servicio/apis/apis.service';
-import { CarruselMaterialesComponent } from '../carruseles/carrusel-materiales/carrusel-materiales.component';
-
 
 @Component({
-  selector: 'app-materiales-educativos',
+  selector: 'app-cards-materialesyjuegos',
   standalone: true,
-  imports: [CarruselMaterialesComponent],
-  templateUrl: './materiales-educativos.component.html',
-  styleUrl: './materiales-educativos.component.css'
+  imports: [],
+  templateUrl: './cards-materialesyjuegos.component.html',
+  styleUrl: './cards-materialesyjuegos.component.css'
 })
-export class MaterialesEducativosComponent implements OnInit {
-  
+export class CardsMaterialesyjuegosComponent implements OnInit {
+
   @Input () materialesEducativos: any = [];
 
   constructor(private ApisService: ApisService) {}
@@ -23,7 +21,7 @@ export class MaterialesEducativosComponent implements OnInit {
   async cargarMaterialesEducativos() {
     try {
       const getDataMaterialesEducativos = await this.ApisService.getMaterialesEducativos();
-      this.materialesEducativos = MaterialesEducativosComponent.extraerMaterialesEducativos(getDataMaterialesEducativos);
+      this.materialesEducativos = CardsMaterialesyjuegosComponent.extraerMaterialesEducativos(getDataMaterialesEducativos);
       console.log('Materiales Educativos:', this.materialesEducativos);
     } catch (error) {
       console.error('Error al cargar la data de materiales educativos:', error);

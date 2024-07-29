@@ -1,0 +1,24 @@
+.card-materiales{
+    background-color: #173F8A;
+    color: #fff;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.card-materiales h2{
+    font-size: 20px;
+    line-height: 26px;
+}
+.card-materiales_btn{
+    text-decoration: none;
+    color: #fff;
+}
+.material-icons.card-materiales_icons{
+    font-size: 14px;
+}
+.material-icons.arrow_slider_bef{
+    color: #0176DE;
+    font-size: 50px;
+  }

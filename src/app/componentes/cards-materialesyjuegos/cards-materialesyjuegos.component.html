@@ -1,0 +1,26 @@
+<div class="mt-40">
+    <div class="">
+        <div class="slidemateriales-item">
+                <div class="row">
+                    @for (material of materialesEducativos; track material.titulo){
+                        <div class="col-12 col-md-4">
+                            <div class="card-materiales text-left p-24 mb-4">
+                                <h2>{{material.titulo}}</h2>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 d-flex">
+                                        <span class="material-icons mr-4">picture_as_pdf</span>
+                                        <a class="btn btn-primary card-materiales_btn" [href]="material.descargar" target="_blank">Descargar</a>
+                                        <span class="material-icons material-icons card-materiales_icons ml-4">open_in_new</span>
+                                    </div>
+                                    <div class="col-12 col-md-6 d-flex justify-content-end">
+                                        <a class="btn btn-primary card-materiales_btn" [href]="material.leer" target="_blank">Ver más</a>
+                                        <span class="material-icons ml-4">add_circle</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+        </div>
+    </div>
+</div>
