@@ -1,0 +1,90 @@
+<div class="slideresenas">
+    <div class="slideresenas-inner">
+        <input class="slideresenas-open" type="radio" id="slideresenas-1" name="slideresenas" aria-hidden="true" hidden="" checked="checked">
+        <div class="slideresenas-item">
+            @if(visibleResenas1) {
+                <div class="row">
+                    @for (resena of visibleResenas1; track resena.bajada){
+                        <div class="col-12 col-md-6">
+                            <div class="card-resenas text-left p-24 mb-4">
+                                <div class="d-flex align-items-start flex-column">
+                                    <div class="d-flex align-items-start">
+                                        <img src="./assets/quote.svg" alt="Imagen de comillas" class="img-fluid mr-8">
+                                        <div>
+                                            <p class="card-resenas_font">
+                                                {{ resena.bajada.slice(0, 200) }}... 
+                                                <a href="" style="text-decoration: none;">Ver más</a>
+                                            </p>
+                                            <p class="card-resenas__icons">
+                                                <span class="material-icons mr-4">date_range</span>
+                                                Fecha: {{resena.fecha}}
+                                            </p> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mt-12">
+                                    <div class="img_bibliotecario">
+                                        <img src="./assets/bibliotecario.png" alt="Imagen de reseña de libro" class="img-fluid">
+                                    </div>
+                                    <div class="ml-8">
+                                        <p class="p-0 m-0 card-resenas__autor">{{resena.autor}}</p>
+                                        <p class="p-0 m-0 card-resenas__cargo">{{resena.cargo}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+        <input class="slideresenas-open" type="radio" id="slideresenas-2" name="slideresenas" aria-hidden="true" hidden="">
+        <div class="slideresenas-item">
+            @if(visibleResenas2) {
+                <div class="row">
+                    @for (resena of visibleResenas2; track resena.titulo){
+                        <div class="col-12 col-md-6">
+                            <div class="card-resenas text-left p-24 mb-4">
+                                <div class="d-flex align-items-start flex-column">
+                                    <div class="d-flex align-items-start">
+                                        <img src="./assets/quote.svg" alt="Imagen de comillas" class="img-fluid mr-8">
+                                        <div>
+                                            <p class="card-resenas_font">{{resena.bajada.slice(0, 200) + '...'}}</p>
+                                            <p class="card-resenas__icons">
+                                                <span class="material-icons mr-4">date_range</span>
+                                                Fecha: {{resena.fecha}}
+                                            </p> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mt-12">
+                                    <div class="img_bibliotecario">
+                                        <img src="./assets/bibliotecario.png" alt="Imagen de reseña de libro" class="img-fluid">
+                                    </div>
+                                    <div class="ml-8">
+                                        <p class="p-0 m-0 card-resenas__autor">{{resena.autor}}</p>
+                                        <p class="p-0 m-0 card-resenas__cargo">{{resena.cargo}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+        
+        <label for="slideresenas-3" class="slideresenas-control prev control-1"><span class="material-icons arrow_slideresenas_bef">arrow_back_ios</span></label>
+        <label for="slideresenas-2" class="slideresenas-control next control-1"><span class="material-icons arrow_slideresenas_bef">arrow_forward_ios</span></label>
+        <label for="slideresenas-1" class="slideresenas-control prev control-2"><span class="material-icons arrow_slideresenas_bef">arrow_back_ios</span></label>
+        <label for="slideresenas-3" class="slideresenas-control next control-2"><span class="material-icons arrow_slideresenas_bef">arrow_forward_ios</span></label>
+    </div>
+</div>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-end">
+                <a href="" class="arrow-carruseles-resenas">Ver todas <span class="material-icons">chevron_right</span></a>
+            </div>
+        </div>
+    </div>
+</section>

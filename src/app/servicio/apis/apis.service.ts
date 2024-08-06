@@ -7,7 +7,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class ApisService {
-
+ 
   constructor() { }
 
   //API Libros (Recursos)
@@ -95,6 +95,23 @@ export class ApisService {
     } catch (error) {
       console.error('Error fetching noticia:', error);
       throw error;
+    }
+  }
+
+  //Api Reseñas de Libros
+
+  async getResenasLibros() {
+    const conf = {
+      headers: {
+        Authorization: 'Bearer ' + environment.apiToken,
+      }
+    }
+    const responseResenasLibros = await axios.get(environment.apiResenasLibros, conf);
+    try {
+      const dataResenasLibros = responseResenasLibros.data;
+      return dataResenasLibros;
+    } catch (error) {
+      console.log(error);
     }
   }
 }
